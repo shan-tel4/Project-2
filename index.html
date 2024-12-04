@@ -5,105 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="dj, music, mixer, sound, party, virtual dj">
     <title>Shay Mix 5000</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <div class="logo">
-        <h1>Shay Mix 5000</h1>
-    </div>
     <div class="dj-mixer">
-        <!-- Deck 1 -->
-        <div class="deck" id="deck-1">
-            <div class="jog-wheel">
-                <div class="wheel-center"></div>
-                <div class="wheel-marker"></div>
-            </div>
-            <div class="track-controls">
-                <input type="file" id="track-input-1" accept="audio/*">
-                <div class="track-info">
-                    <span id="track-name-1">Track 1</span>
-                </div>
-                <progress id="progress-1" value="0" max="100"></progress>
-                <div class="time-display">
-                    <span id="elapsed-1">00:00</span> / <span id="duration-1">00:00</span>
-                </div>
-                <div class="buttons">
-                    <button id="play-btn-1">Play</button>
-                    <button id="pause-btn-1">Pause</button>
-                    <button id="loop-btn-1">Loop</button>
-                </div>
-            </div>
-            <div class="sliders">
-                <div>
-                    <label>Volume</label>
-                    <input type="range" id="volume-1" min="0" max="1" step="0.01">
-                </div>
-                <div>
-                    <label>Pitch</label>
-                    <input type="range" id="pitch-1" min="0.5" max="2" step="0.01">
-                </div>
-            </div>
-        </div>
-
-        <!-- Mixer -->
-        <div class="mixer">
-            <div class="crossfader">
-                <label>Crossfader</label>
-                <input type="range" id="crossfader" min="0" max="1" step="0.01">
-            </div>
-            <div class="knobs">
-                <div class="knob">
-                    <div class="knob-handle"></div>
-                    <span>Filter</span>
-                </div>
-                <div class="knob">
-                    <div class="knob-handle"></div>
-                    <span>Low</span>
-                </div>
-                <div class="knob">
-                    <div class="knob-handle"></div>
-                    <span>Mid</span>
-                </div>
-                <div class="knob">
-                    <div class="knob-handle"></div>
-                    <span>High</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Deck 2 -->
-        <div class="deck" id="deck-2">
-            <div class="jog-wheel">
-                <div class="wheel-center"></div>
-                <div class="wheel-marker"></div>
-            </div>
-            <div class="track-controls">
-                <input type="file" id="track-input-2" accept="audio/*">
-                <div class="track-info">
-                    <span id="track-name-2">Track 2</span>
-                </div>
-                <progress id="progress-2" value="0" max="100"></progress>
-                <div class="time-display">
-                    <span id="elapsed-2">00:00</span> / <span id="duration-2">00:00</span>
-                </div>
-                <div class="buttons">
-                    <button id="play-btn-2">Play</button>
-                    <button id="pause-btn-2">Pause</button>
-                    <button id="loop-btn-2">Loop</button>
-                </div>
-            </div>
-            <div class="sliders">
-                <div>
-                    <label>Volume</label>
-                    <input type="range" id="volume-2" min="0" max="1" step="0.01">
-                </div>
-                <div>
-                    <label>Pitch</label>
-                    <input type="range" id="pitch-2" min="0.5" max="2" step="0.01">
-                </div>
-            </div>
-        </div>
+        <!-- Logo -->
+        <div class="logo">Shay Mixer 5000</div>
+      
+      <!-- Left Deck -->
+<div class="deck left">
+    <div class="jog-wheel"></div>
+    <div class="pad-row">
+      <button class="pad"><i class="fas fa-play"></i></button>
+      <button class="pad"><i class="fas fa-sync-alt"></i></button>
+      <button class="pad"><i class="fas fa-arrow-up"></i></button>
     </div>
+  </div>
+      
+        <!-- Central Mixer -->
+        <div class="mixer">
+          <div class="fader"></div>
+          <div class="knobs">
+            <div class="knob">Gain</div>
+            <div class="knob">Mid</div>
+            <div class="knob">Filter</div>
+          </div>
+          <div class="crossfader"></div>
+          <!-- Audio Upload -->
+          <div class="audio-upload">
+            <label for="audioFile">Upload Audio:</label>
+            <input type="file" id="audioFile" accept="audio/*" />
+          </div>
+        </div>
+      
+        <!-- Right Deck -->
+<div class="deck right">
+    <div class="jog-wheel"></div>
+    <div class="pad-row">
+      <button class="pad"><i class="fas fa-play"></i></button>
+      <button class="pad"><i class="fas fa-sync-alt"></i></button>
+      <button class="pad"><i class="fas fa-arrow-up"></i></button>
+    </div>
+  </div>
  <script src="assets/javascript/script.js"></script>   
 </body>
 </html>
