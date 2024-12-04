@@ -1,6 +1,8 @@
 /* Google font*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -10,3 +12,135 @@
 }
 
 
+/* General styles */
+body {
+    margin: 0;
+    background: radial-gradient(circle, #1a1a1a, #000);
+    font-family: 'Arial', sans-serif;
+    color: white;
+    text-align: center;
+}
+
+/* Logo */
+.logo {
+    margin: 20px 0;
+    
+}
+
+.logo h1 {
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #db1ca1;
+
+}
+
+/* DJ Mixer */
+.dj-mixer {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 20px;
+}
+
+.deck {
+    background: #222;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    width: 30%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+}
+
+/* Jog Wheels */
+.jog-wheel {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto;
+    position: relative;
+    background: radial-gradient(circle, #555, #111);
+    border: 4px solid #444;
+    border-radius: 50%;
+    box-shadow: inset 0 0 10px #000, 0 0 20px #db1ca1;
+}
+
+.wheel-center {
+    width: 60px;
+    height: 60px;
+    background: #333;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px #db1ca1;
+}
+
+.wheel-marker {
+    width: 4px;
+    height: 60px;
+    background: #db1ca1;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+}
+
+/* Buttons */
+.buttons button {
+    background: #444;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.buttons button:hover {
+    background: #db1ca1;
+}
+
+/* Progress Bars */
+progress {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.mixer {
+    background: #111;
+    border-radius: 15px;
+    padding: 20px;
+    width: 20%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+}
+
+/* Knobs */
+.knobs {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.knob {
+    text-align: center;
+}
+
+.knob-handle {
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle, #555, #222);
+    border-radius: 50%;
+    margin: 0 auto;
+    box-shadow: 0 0 10px #db1ca1;
+}
+
+
+/* Hide the default file input */
+input[type="file"] {
+    display: none;
+}
