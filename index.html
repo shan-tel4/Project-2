@@ -3,61 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="dj, music, mixer, sound, party, virtual dj">
     <title>Shay Mixer 5000</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="dj-mixer">
-        <!-- Logo -->
-        <div class="logo">virtual Mixer 5000</div>
-      
-      <!-- Left Deck -->
-<div class="deck left">
-  <!-- Audio Upload -->
-  <div class="audio-upload">
-    <label for="audio-uploader">Upload Audio:</label>
-    <input type="file" id="audio-uploader-left" accept="audio/*" />
-  </div>
-    <div class="jog-wheel"></div>
-    <div><audio controls id="audio-player-left"></audio></div>
-    <div class="pad-row">
-      <button class="pad"><i class="fas fa-play"></i></button>
-      <button class="pad"><i class="fas fa-sync-alt"></i></button>
-      <button class="pad"><i class="fas fa-arrow-up"></i></button>
-    </div>
-  </div>
-      
+        <!-- Header -->
+        <div class="logo">Shay Mixer 5000</div>
+
+        <!-- Left Deck -->
+        <div class="deck deck-left">
+            <div class="deck-label">Deck A</div>
+            <div class="audio-upload">
+                <label for="audio-uploader-left">Upload Audio:</label>
+                <input type="file" id="audio-uploader-left" accept="audio/*" />
+            </div>
+            <div class="jog-container">
+                <div class="jog-wheel" id="jog-wheel-left">
+                    <div class="jog-marker"></div>
+                </div>
+            </div>
+            <div class="knobs">
+                <div class="knob">
+                    <label>Bass</label>
+                </div>
+                <div class="knob">
+                    <label>Mid</label>
+                </div>
+                <div class="knob">
+                    <label>Treble</label>
+                </div>
+            </div>
+            <div class="pad-row">
+                <button class="pad play"><i class="fas fa-play"></i></button>
+                <button class="pad pause"><i class="fas fa-pause"></i></button>
+                <button class="pad cue"><i class="fas fa-arrow-up"></i></button>
+            </div>
+        </div>
+
         <!-- Central Mixer -->
         <div class="mixer">
-          <div class="fader"></div>
-          <div class="knobs">
-            <div class="knob">Jump</div>
-            <div class="knob">Cue</div>
-            <div class="knob">Filter</div>
-          </div>
-          <div class="crossfader"></div>
-
+            <div class="fader">
+                <label for="crossfader-slider">Crossfader:</label>
+                <input type="range" id="crossfader-slider" min="0" max="100" value="50" />
+            </div>
         </div>
-        
-        <!-- Right Deck -->
 
-  
-        <div class="deck right">
-          <!-- Audio Upload -->
-          <div class="audio-upload">
-            <label for="audio-uploader">Upload Audio:</label>
-            <input type="file" id="audio-uploader-right" accept="audio/*" />
-          </div>
-    <div class="jog-wheel"></div>
-    <div><audio controls id="audio-player-right"></audio></div>
-    <div class="pad-row">
-      <button class="pad"><i class="fas fa-play"></i></button>
-      <button class="pad"><i class="fas fa-sync-alt"></i></button>
-      <button class="pad"><i class="fas fa-arrow-up"></i></button>
+        <!-- Right Deck -->
+        <div class="deck deck-right">
+            <div class="deck-label">Deck B</div>
+            <div class="audio-upload">
+                <label for="audio-uploader-right">Upload Audio:</label>
+                <input type="file" id="audio-uploader-right" accept="audio/*" />
+            </div>
+            <div class="jog-container">
+                <div class="jog-wheel" id="jog-wheel-right">
+                    <div class="jog-marker"></div>
+                </div>
+            </div>
+            <div class="knobs">
+                <div class="knob">
+                    <label>Bass</label>
+                </div>
+                <div class="knob">
+                    <label>Mid</label>
+                </div>
+                <div class="knob">
+                    <label>Treble</label>
+                </div>
+            </div>
+            <div class="pad-row">
+                <button class="pad play"><i class="fas fa-play"></i></button>
+                <button class="pad pause"><i class="fas fa-pause"></i></button>
+                <button class="pad cue"><i class="fas fa-arrow-up"></i></button>
+            </div>
+        </div>
     </div>
-  </div>
- <script src="assets/javascript/script.js"></script>   
+
+    <script type="module" src="assets/javascript/script.js"></script>
 </body>
 </html>
+
