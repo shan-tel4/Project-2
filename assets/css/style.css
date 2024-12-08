@@ -1,161 +1,153 @@
-/* Google font*/
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+/* General Styling */
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
+/* General Styling */
 body {
-    background-color: #4a4d63;
-    display: flex; /* Enable Flexbox to center the content horizontally */
-    justify-content: center;
-    align-items: flex-start; /* Align the content towards the top */
-    min-height: 100vh; /* Ensure full screen height */
-    padding-top: 50px; /* Add padding to push the content down */
-    box-sizing: border-box; /* Include padding in the total height */
+  background-color: #4a4d63;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  color: #fff;
 }
 
-/* Main DJ Mixer Styling */
 .dj-mixer {
-    background: #2a2d43;
-    border-radius: 15px;
-    width: 950px;
-    margin: auto;
-    padding: 20px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-    font-family: 'Arial', sans-serif;
+  display: grid;
+  grid-template-columns: 1fr 0.5fr 1fr;
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  width: 100%;
+  background: #2a2d43;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
 
-  }
-  
-  /* Logo Styling */
-  .logo {
-    position: absolute;
-    top: 25px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 40px;
-    font-weight: bold;
-    color: #f5b0c4;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
-  }
-  
-  /* Deck Styling */
-  .deck {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 25%;
-  }
-  
-  .jog-wheel {
-    width: 140px;
-    height: 140px;
-    background: radial-gradient(circle, #14162b, #20243e);
-    border: 8px solid #f5b0c4;
-    border-radius: 50%;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  }
-  
-  .pad {
-    width: 60px; /* Adjust width to fit the icons properly */
-    height: 60px; /* Adjust height */
-    background: #4a4d63;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    text-align: center;
-    font-size: 24px; /* Increase font size for icons */
-    line-height: 60px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    transition: all 0.2s ease;
-    cursor: pointer; /* Add pointer cursor for interactivity */
-  }
-  
-  .pad i {
-    font-size: 28px; /* Adjust icon size */
-  }
-  
-  .pad:hover {
-    background: #f5b0c4; /* Highlight the button on hover */
-    transform: scale(1.1); /* Slightly enlarge button on hover */
-  }
-  
-  /* Mixer Styling */
-  .mixer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 40%;
-    padding: 0 10px;
-  }
-  
-  .fader {
-    width: 8px;
-    height: 120px;
-    background: #44485f;
-    margin-bottom: 20px;
-  }
-  
-  .knobs {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 20px;
-  }
-  
-  .knob {
-    width: 50px;
-    height: 50px;
-    background: #44485f;
-    border-radius: 50%;
-    text-align: center;
-    font-size: 12px;
-    color: #fff;
-    line-height: 50px;
-    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
-  }
-  
-  .crossfader {
-    width: 150px;
-    height: 10px;
-    background: #44485f;
-    border-radius: 5px;
-    margin-bottom: 20px;
-  }
-  
-  /* Audio Upload */
-  .audio-upload {
-    margin-top: 15px;
-    text-align: center;
-    font-size: 14px;
-  }
-  
-  .audio-upload label {
-    color: #f5b0c4;
-    font-weight: bold;
-    margin-right: 10px;
-  }
-  
-  .audio-upload input[type="file"] {
-    border: none;
-    background: #4a4d63;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-  
-  .audio-upload input[type="file"]:hover {
-    background: #f5b0c4;
-  }
-  
+.logo {
+  grid-column: span 3;
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  color: #f5b0c4;
+  margin-bottom: 20px;
+}
+
+/* Deck Styling */
+.deck {
+  background: #343654;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.deck-label {
+  font-size: 18px;
+  font-weight: bold;
+  color: #f5b0c4;
+  text-transform: uppercase;
+}
+
+/* Jog Wheel Styling */
+.jog-container {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, #20243e, #14162b);
+  border-radius: 50%;
+  border: 5px solid #4F4A85;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5), 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.jog-wheel {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: relative;
+  animation: spin 2s linear infinite;
+}
+
+.jog-marker {
+  position: absolute;
+  width: 10px;
+  height: 50px;
+  background: #f5b0c4;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Knobs */
+.knobs {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.knob {
+  width: 50px;
+  height: 50px;
+  background: #44485f;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+  text-align: center;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.knob label {
+  font-size: 12px;
+}
+
+/* Pads */
+.pad-row {
+  display: flex;
+  gap: 15px;
+}
+
+.pad {
+  width: 60px;
+  height: 60px;
+  background: #4a4d63;
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.pad:hover {
+  background: #f5b0c4;
+  color: #000;
+}
+
+/* Crossfader */
+.fader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.fader input[type="range"] {
+  width: 150px;
+}
