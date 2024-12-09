@@ -4,7 +4,7 @@ import WaveSurfer from 'https://cdn.jsdelivr.net/npm/wavesurfer.js@7/dist/wavesu
 const wavesurferLeft = WaveSurfer.create({
     container: '#jog-wheel-left',
     waveColor: '#4F4A85',
-    progressColor: '#383351',
+    progressColor: 'pink',
     height: 80,
     barWidth: 2,
 });
@@ -18,7 +18,10 @@ const wavesurferRight = WaveSurfer.create({
     barWidth: 2,
 });
 
-// Audio upload and waveform rendering for Deck A
+let preservePitch = true;
+const speeds = [0.25, 0.5, 1, 2, 4];
+
+// Handle audio file upload for Deck A
 document.getElementById('audio-uploader-left').addEventListener('change', (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -30,7 +33,7 @@ document.getElementById('audio-uploader-left').addEventListener('change', (event
     }
 });
 
-// Audio upload and waveform rendering for Deck B
+// Handle audio file upload for Deck B
 document.getElementById('audio-uploader-right').addEventListener('change', (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -42,39 +45,46 @@ document.getElementById('audio-uploader-right').addEventListener('change', (even
     }
 });
 
-// Play functionality for Deck A
+// Play and Pause for Deck A
 document.querySelector('.deck-left .pad.play').addEventListener('click', () => {
-    wavesurferLeft.play(); // Start playback
-    console.log("Deck A: Playing");
+    wavesurferLeft.playPause();
+    document.querySelector('#jog-wheel-left').classList.toggle('playing', wavesurferLeft.isPlaying());
+    console.log("Deck A: Play/Pause toggled");
 });
 
-// Pause functionality for Deck A
-document.querySelector('.deck-left .pad.pause').addEventListener('click', () => {
-    wavesurferLeft.pause(); // Pause playback
-    console.log("Deck A: Paused");
-});
-
-// Cue (reset) functionality for Deck A
-document.querySelector('.deck-left .pad.cue').addEventListener('click', () => {
-    wavesurferLeft.stop(); // Stop playback and reset to the start
-    console.log("Deck A: Reset");
-});
-
-// Play functionality for Deck B
+// Play and Pause for Deck B
 document.querySelector('.deck-right .pad.play').addEventListener('click', () => {
-    wavesurferRight.play(); // Start playback
-    console.log("Deck B: Playing");
+    wavesurferRight.playPause();
+    document.querySelector('#jog-wheel-right').classList.toggle('playing', wavesurferRight.isPlaying());
+    console.log("Deck B: Play/Pause toggled");
 });
 
-// Pause functionality for Deck B
-document.querySelector('.deck-right .pad.pause').addEventListener('click', () => {
-    wavesurferRight.pause(); // Pause playback
-    console.log("Deck B: Paused");
+// Adjust playback speed for Deck A
+document.querySelector('#speed-slider').addEventListener('input', (e) => {
+    const speed = speeds[e.target.valueAsNumber];
+    document.querySelector('#rate').textContent = speed.toFixed(2);
+    wavesurferLeft.setPlaybackRate(speed, preservePitch);
+    console.log("Deck A: Playback rate set to", speed);
 });
 
-// Cue (reset) functionality for Deck B
-document.querySelector('.deck-right .pad.cue').addEventListener('click', () => {
-    wavesurferRight.stop(); // Stop playback and reset to the start
-    console.log("Deck B: Reset");
+// Preserve pitch for Deck A
+document.querySelector('#preserve-pitch').addEventListener('change', (e) => {
+    preservePitch = e.target.checked;
+    wavesurferLeft.setPlaybackRate(wavesurferLeft.getPlaybackRate(), preservePitch);
+    console.log("Deck A: Preserve pitch set to", preservePitch);
+});
+
+// Ensure jog wheel animation plays when audio plays
+wavesurferLeft.on('play', () => {
+    document.querySelector('#jog-wheel-left').classList.add('playing');
+});
+wavesurferLeft.on('pause', () => {
+    document.querySelector('#jog-wheel-left').classList.remove('playing');
+});
+wavesurferRight.on('play', () => {
+    document.querySelector('#jog-wheel-right').classList.add('playing');
+});
+wavesurferRight.on('pause', () => {
+    document.querySelector('#jog-wheel-right').classList.remove('playing');
 });
 
