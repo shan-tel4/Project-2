@@ -9,145 +9,199 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/* General Styling */
 body {
-  background-color: #4a4d63;
-  font-family: 'Poppins', sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  margin: 0;
-  color: #fff;
+    background-color: #4a4d63;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: #fff;
 }
 
 .dj-mixer {
-  display: grid;
-  grid-template-columns: 1fr 0.5fr 1fr;
-  gap: 20px;
-  padding: 20px;
-  max-width: 1200px;
-  width: 100%;
-  background: #2a2d43;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    display: grid;
+    grid-template-columns: 1fr 0.5fr 1fr;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    width: 100%;
+    background: #2a2d43;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 .logo {
-  grid-column: span 3;
-  text-align: center;
-  font-size: 28px;
-  font-weight: bold;
-  color: #f5b0c4;
-  margin-bottom: 20px;
+    grid-column: span 3;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: #f5b0c4;
+    margin-bottom: 20px;
 }
 
 /* Deck Styling */
 .deck {
-  background: #343654;
-  padding: 20px;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    background: #343654;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .deck-label {
-  font-size: 18px;
-  font-weight: bold;
-  color: #f5b0c4;
-  text-transform: uppercase;
+    font-size: 18px;
+    font-weight: bold;
+    color: #f5b0c4;
+    text-transform: uppercase;
 }
 
 /* Jog Wheel Styling */
 .jog-container {
-  position: relative;
-  width: 150px;
-  height: 150px;
-  background: radial-gradient(circle, #20243e, #14162b);
-  border-radius: 50%;
-  border: 5px solid #4F4A85;
-  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5), 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, #20243e, #14162b);
+    border-radius: 50%;
+    border: 5px solid #4F4A85;
+    box-shadow: 
+        inset 0 2px 5px rgba(0, 0, 0, 0.5), 
+        0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .jog-wheel {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  position: relative;
-  animation: spin 2s linear infinite;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: relative;
 }
 
 .jog-marker {
-  position: absolute;
-  width: 10px;
-  height: 50px;
-  background: #f5b0c4;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+    position: absolute;
+    width: 10px;
+    height: 50px;
+    background: #f5b0c4;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: spin 2s linear infinite paused;
+}
+
+.jog-wheel.playing .jog-marker {
+    animation-play-state: running;
+}
+
+@keyframes spin {
+    from {
+        transform: translateX(-50%) rotate(0deg);
+    }
+    to {
+        transform: translateX(-50%) rotate(360deg);
+    }
 }
 
 /* Knobs */
 .knobs {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
 }
 
 .knob {
-  width: 50px;
-  height: 50px;
-  background: #44485f;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  color: #fff;
-  text-align: center;
-  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
+    width: 50px;
+    height: 50px;
+    background: #44485f;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .knob label {
-  font-size: 12px;
+    font-size: 12px;
 }
 
 /* Pads */
 .pad-row {
-  display: flex;
-  gap: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
 }
 
 .pad {
-  width: 60px;
-  height: 60px;
-  background: #4a4d63;
-  border: none;
-  border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 24px;
-  color: #fff;
-  cursor: pointer;
+    width: 60px;
+    height: 60px;
+    background: #4a4d63;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
 }
 
 .pad:hover {
-  background: #f5b0c4;
-  color: #000;
+    background: #f5b0c4;
+    color: #000;
+}
+
+/* Speed Control Styling */
+.speed-control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    margin-left: 15px;
+}
+
+.speed-control label {
+    font-size: 12px;
+    color: #fff;
+}
+
+.speed-control input[type="range"] {
+    width: 120px;
+    appearance: none;
+    background: #4F4A85;
+    height: 4px;
+    border-radius: 5px;
+    outline: none;
+}
+
+.speed-control input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background: #f5b0c4;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.speed-control input[type="checkbox"] {
+    accent-color: #f5b0c4;
 }
 
 /* Crossfader */
 .fader {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
 }
 
 .fader input[type="range"] {
-  width: 150px;
+    width: 150px;
+    color: #4F4A85;
 }

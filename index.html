@@ -36,9 +36,20 @@
                 </div>
             </div>
             <div class="pad-row">
-                <button class="pad play"><i class="fas fa-play"></i></button>
-                <button class="pad pause"><i class="fas fa-pause"></i></button>
-                <button class="pad cue"><i class="fas fa-arrow-up"></i></button>
+                <div class="button-group">
+                    <button class="pad play"><i class="fas fa-play"></i></button>
+                    <button class="pad pause"><i class="fas fa-pause"></i></button>
+                </div>
+                <div class="speed-control">
+                    <label>
+                        Speed: <span id="rate">1.00</span>x
+                    </label>
+                    <input type="range" id="speed-slider" min="0" max="4" step="1" value="2" />
+                    <label>
+                        <input type="checkbox" id="preserve-pitch" checked />
+                        Preserve pitch
+                    </label>
+                </div>
             </div>
         </div>
 
@@ -74,14 +85,25 @@
                 </div>
             </div>
             <div class="pad-row">
-                <button class="pad play"><i class="fas fa-play"></i></button>
-                <button class="pad pause"><i class="fas fa-pause"></i></button>
-                <button class="pad cue"><i class="fas fa-arrow-up"></i></button>
+                <div class="button-group">
+                    <button class="pad play"><i class="fas fa-play"></i></button>
+                    <button class="pad pause"><i class="fas fa-pause"></i></button>
+                </div>
+                <div class="speed-control">
+                    <label>
+                        Speed: <span id="rate">1.00</span>x
+                    </label>
+                    <input type="range" id="speed-slider" min="0" max="4" step="1" value="2" />
+                    <label>
+                        <input type="checkbox" id="preserve-pitch" checked />
+                        Preserve pitch
+                    </label>
+                </div>
             </div>
         </div>
     </div>
-
     <script type="module" src="assets/javascript/script.js"></script>
 </body>
 </html>
+
 
