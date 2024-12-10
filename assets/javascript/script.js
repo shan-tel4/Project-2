@@ -5,7 +5,7 @@ const wavesurferLeft = WaveSurfer.create({
     container: '#jog-wheel-left',
     waveColor: '#4F4A85',
     progressColor: 'pink',
-    height: 80,
+    height: 60,
     barWidth: 2,
 });
 
@@ -14,77 +14,95 @@ const wavesurferRight = WaveSurfer.create({
     container: '#jog-wheel-right',
     waveColor: '#4F4A85',
     progressColor: '#383351',
-    height: 80,
+    height: 60,
     barWidth: 2,
 });
 
-let preservePitch = true;
-const speeds = [0.25, 0.5, 1, 2, 4];
+// Preserve Pitch Flags
+let preservePitchLeft = true;
+let preservePitchRight = true;
 
-// Handle audio file upload for Deck A
+// Available Speeds
+const speeds = [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2];
+
+// Handle Audio Upload for Deck A
 document.getElementById('audio-uploader-left').addEventListener('change', (event) => {
     const file = event.target.files[0];
     if (file) {
         const fileURL = URL.createObjectURL(file);
-        wavesurferLeft.load(fileURL); // Load audio into WaveSurfer
-        console.log("Deck A: Loaded file", file.name);
+        wavesurferLeft.load(fileURL);
+        console.log('Deck A: Audio loaded');
     } else {
-        console.error("Deck A: No file selected.");
+        console.error('Deck A: No audio file selected');
     }
 });
 
-// Handle audio file upload for Deck B
+// Handle Audio Upload for Deck B
 document.getElementById('audio-uploader-right').addEventListener('change', (event) => {
     const file = event.target.files[0];
     if (file) {
         const fileURL = URL.createObjectURL(file);
-        wavesurferRight.load(fileURL); // Load audio into WaveSurfer
-        console.log("Deck B: Loaded file", file.name);
+        wavesurferRight.load(fileURL);
+        console.log('Deck B: Audio loaded');
     } else {
-        console.error("Deck B: No file selected.");
+        console.error('Deck B: No audio file selected');
     }
 });
 
-// Play and Pause for Deck A
-document.querySelector('.deck-left .pad.play').addEventListener('click', () => {
-    wavesurferLeft.playPause();
-    document.querySelector('#jog-wheel-left').classList.toggle('playing', wavesurferLeft.isPlaying());
-    console.log("Deck A: Play/Pause toggled");
-});
+// Set up controls for each deck
+function setupDeckControls(deck, wavesurfer) {
+    const prefix = deck === 'left' ? 'left' : 'right';
 
-// Play and Pause for Deck B
-document.querySelector('.deck-right .pad.play').addEventListener('click', () => {
-    wavesurferRight.playPause();
-    document.querySelector('#jog-wheel-right').classList.toggle('playing', wavesurferRight.isPlaying());
-    console.log("Deck B: Play/Pause toggled");
-});
+    // Play Button
+    document.querySelector(`.deck-${deck} .pad.play`).addEventListener('click', () => {
+        wavesurfer.play();
+        document.querySelector(`#jog-wheel-${deck}`).classList.add('playing');
+        console.log(`Deck ${deck.toUpperCase()}: Playing`);
+    });
 
-// Adjust playback speed for Deck A
-document.querySelector('#speed-slider').addEventListener('input', (e) => {
-    const speed = speeds[e.target.valueAsNumber];
-    document.querySelector('#rate').textContent = speed.toFixed(2);
-    wavesurferLeft.setPlaybackRate(speed, preservePitch);
-    console.log("Deck A: Playback rate set to", speed);
-});
+    // Pause Button
+    document.querySelector(`.deck-${deck} .pad.pause`).addEventListener('click', () => {
+        wavesurfer.pause();
+        document.querySelector(`#jog-wheel-${deck}`).classList.remove('playing');
+        console.log(`Deck ${deck.toUpperCase()}: Paused`);
+    });
 
-// Preserve pitch for Deck A
-document.querySelector('#preserve-pitch').addEventListener('change', (e) => {
-    preservePitch = e.target.checked;
-    wavesurferLeft.setPlaybackRate(wavesurferLeft.getPlaybackRate(), preservePitch);
-    console.log("Deck A: Preserve pitch set to", preservePitch);
-});
+    // Loop Button
+    document.querySelector(`.deck-${deck} .pad.loop`).addEventListener('click', () => {
+        const isLooping = wavesurfer.getLoop();
+        wavesurfer.setLoop(!isLooping);
+        document.querySelector(`.deck-${deck} .pad.loop`).classList.toggle('active', !isLooping);
+        console.log(`Deck ${deck.toUpperCase()}: Looping ${!isLooping ? 'enabled' : 'disabled'}`);
+    });
 
-// Ensure jog wheel animation plays when audio plays
-wavesurferLeft.on('play', () => {
-    document.querySelector('#jog-wheel-left').classList.add('playing');
-});
-wavesurferLeft.on('pause', () => {
-    document.querySelector('#jog-wheel-left').classList.remove('playing');
-});
-wavesurferRight.on('play', () => {
-    document.querySelector('#jog-wheel-right').classList.add('playing');
-});
-wavesurferRight.on('pause', () => {
-    document.querySelector('#jog-wheel-right').classList.remove('playing');
-});
+    // Speed Slider
+    document.querySelector(`#speed-slider-${prefix}`).addEventListener('input', (e) => {
+        const speed = speeds[e.target.valueAsNumber];
+        document.querySelector(`#rate-${prefix}`).textContent = speed.toFixed(2);
+        wavesurfer.setPlaybackRate(speed, deck === 'left' ? preservePitchLeft : preservePitchRight);
+        console.log(`Deck ${deck.toUpperCase()}: Playback rate set to ${speed}`);
+    });
 
+    // Preserve Pitch
+    document.querySelector(`#preserve-pitch-${prefix}`).addEventListener('change', (e) => {
+        if (deck === 'left') {
+            preservePitchLeft = e.target.checked;
+        } else {
+            preservePitchRight = e.target.checked;
+        }
+        wavesurfer.setPlaybackRate(wavesurfer.getPlaybackRate(), e.target.checked);
+        console.log(`Deck ${deck.toUpperCase()}: Preserve pitch ${e.target.checked ? 'enabled' : 'disabled'}`);
+    });
+
+    // Ensure jog wheel animates during playback
+    wavesurfer.on('play', () => {
+        document.querySelector(`#jog-wheel-${deck}`).classList.add('playing');
+    });
+    wavesurfer.on('pause', () => {
+        document.querySelector(`#jog-wheel-${deck}`).classList.remove('playing');
+    });
+}
+
+// Initialize controls for both decks
+setupDeckControls('left', wavesurferLeft);
+setupDeckControls('right', wavesurferRight);

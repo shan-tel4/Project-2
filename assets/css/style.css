@@ -1,22 +1,22 @@
-/* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 /* General Styling */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    
 }
 
 body {
     background-color: #4a4d63;
-    font-family: 'Poppins', sans-serif;
     display: flex;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    margin: 0;
     color: #fff;
 }
 
@@ -35,7 +35,7 @@ body {
 .logo {
     grid-column: span 3;
     text-align: center;
-    font-size: 28px;
+    font-size: 36px;
     font-weight: bold;
     color: #f5b0c4;
     margin-bottom: 20px;
@@ -63,14 +63,33 @@ body {
 /* Jog Wheel Styling */
 .jog-container {
     position: relative;
-    width: 150px;
-    height: 150px;
+    width: 250px; /* Increased size for realism */
+    height: 250px; /* Increased size for realism */
     background: radial-gradient(circle, #20243e, #14162b);
     border-radius: 50%;
-    border: 5px solid #4F4A85;
+    border: 6px solid #4F4A85;
     box-shadow: 
         inset 0 2px 5px rgba(0, 0, 0, 0.5), 
         0 5px 15px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.jog-container::before {
+    content: '';
+    width: 95%;
+    height: 95%;
+    border-radius: 50%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.1) 1px,
+        transparent 1px,
+        transparent 3px
+    );
+    position: absolute;
+    top: 2.5%;
+    left: 2.5%;
+    z-index: 1;
 }
 
 .jog-wheel {
@@ -80,14 +99,29 @@ body {
     position: relative;
 }
 
+.jog-wheel::after {
+    content: '';
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle, #14162b, #20243e);
+    border: 2px solid #f5b0c4;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
 .jog-marker {
     position: absolute;
     width: 10px;
-    height: 50px;
+    height: 70px; /* Made longer for realism */
     background: #f5b0c4;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
+    transform-origin: center 100px;
     animation: spin 2s linear infinite paused;
 }
 
@@ -104,37 +138,12 @@ body {
     }
 }
 
-/* Knobs */
-.knobs {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-}
-
-.knob {
-    width: 50px;
-    height: 50px;
-    background: #44485f;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    text-align: center;
-    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
-}
-
-.knob label {
-    font-size: 12px;
-}
-
 /* Pads */
 .pad-row {
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    width: 100%;
+    gap: 15px;
 }
 
 .pad {
@@ -143,7 +152,7 @@ body {
     background: #4a4d63;
     border: none;
     border-radius: 5px;
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     font-size: 24px;
@@ -162,7 +171,7 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 5px;
-    margin-left: 15px;
+    margin-left: 10px;
 }
 
 .speed-control label {
@@ -205,3 +214,6 @@ body {
     width: 150px;
     color: #4F4A85;
 }
+
+
+ 
