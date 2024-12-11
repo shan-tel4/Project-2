@@ -106,3 +106,16 @@ function setupDeckControls(deck, wavesurfer) {
 // Initialize controls for both decks
 setupDeckControls('left', wavesurferLeft);
 setupDeckControls('right', wavesurferRight);
+
+
+// Select the volume slider
+const volumeSlider = document.getElementById('volume-slider');
+
+// Function to adjust volume for both decks
+volumeSlider.addEventListener('input', (event) => {
+    const volume = event.target.value / 100; // Convert slider value (0-100) to 0.0-1.0
+    wavesurferLeft.setVolume(volume); // Set volume for Deck A
+    wavesurferRight.setVolume(volume); // Set volume for Deck B
+
+    console.log(`Volume adjusted to: ${volume * 100}%`);
+});
