@@ -19,24 +19,21 @@
                 <label for="audio-uploader-left">Upload Audio:</label>
                 <input type="file" id="audio-uploader-left" accept="audio/*" />
             </div>
-            <div class="waveform" id="waveform-left"></div> <!-- Waveform Display -->
+            <div class="waveform" id="waveform-left"></div>
             <div class="jog-container">
                 <div class="jog-wheel" id="jog-wheel-left">
                     <div class="jog-marker"></div>
                 </div>
             </div>
-            <!-- Buttons -->
             <div class="pad-row">
                 <div class="button-group">
-                    <button class="pad cue"><i class="fas fa-step-backward"></i></button> <!-- Cue Button -->
+                    <button class="pad cue"><i class="fas fa-step-backward"></i></button>
                     <button class="pad play"><i class="fas fa-play"></i></button>
                     <button class="pad pause"><i class="fas fa-pause"></i></button>
-                    <button class="pad loop"><i class="fas fa-redo"></i></button> <!-- Loop Button -->
+                    <button class="pad loop"><i class="fas fa-redo"></i></button>
                 </div>
                 <div class="speed-control">
-                    <label>
-                        Speed: <span id="rate-left">1.00</span>x
-                    </label>
+                    <label>Speed: <span id="rate-left">1.00</span>x</label>
                     <input type="range" id="speed-slider-left" min="0" max="7" step="1" value="3" />
                     <label>
                         <input type="checkbox" id="preserve-pitch-left" checked />
@@ -48,9 +45,11 @@
 
         <!-- Central Mixer -->
         <div class="mixer">
-            <div class="fader">
-                <label for="crossfader-slider">Crossfader:</label>
-                <input type="range" id="crossfader-slider" min="0" max="100" value="50" />
+            <div class="volume-controller">
+                <div class="slider-track">
+                    <input type="range" min="0" max="100" value="50" class="slider" id="volume-slider">
+                    <div class="slider-indicator"></div>
+                </div>
             </div>
         </div>
 
@@ -61,24 +60,21 @@
                 <label for="audio-uploader-right">Upload Audio:</label>
                 <input type="file" id="audio-uploader-right" accept="audio/*" />
             </div>
-            <div class="waveform" id="waveform-right"></div> <!-- Waveform Display -->
+            <div class="waveform" id="waveform-right"></div>
             <div class="jog-container">
                 <div class="jog-wheel" id="jog-wheel-right">
                     <div class="jog-marker"></div>
                 </div>
             </div>
-            <!-- Buttons -->
             <div class="pad-row">
                 <div class="button-group">
-                    <button class="pad cue"><i class="fas fa-step-backward"></i></button> <!-- backwards Button -->
+                    <button class="pad cue"><i class="fas fa-step-backward"></i></button>
                     <button class="pad play"><i class="fas fa-play"></i></button>
                     <button class="pad pause"><i class="fas fa-pause"></i></button>
-                    <button class="pad loop"><i class="fas fa-redo"></i></button> <!-- Loop Button -->
+                    <button class="pad loop"><i class="fas fa-redo"></i></button>
                 </div>
                 <div class="speed-control">
-                    <label>
-                        Speed: <span id="rate-right">1.00</span>x
-                    </label>
+                    <label>Speed: <span id="rate-right">1.00</span>x</label>
                     <input type="range" id="speed-slider-right" min="0" max="7" step="1" value="3" />
                     <label>
                         <input type="checkbox" id="preserve-pitch-right" checked />
@@ -91,7 +87,6 @@
     <script type="module" src="assets/javascript/script.js"></script>
 </body>
 </html>
-
 
 
 
