@@ -1,8 +1,7 @@
 import WaveSurfer from 'https://cdn.jsdelivr.net/npm/wavesurfer.js@7/dist/wavesurfer.esm.js';
 
-// Initialize WaveSurfer for Deck A
 const wavesurferLeft = WaveSurfer.create({
-    container: '#jog-wheel-left',
+    container: '#waveform-left',
     waveColor: '#4F4A85',
     progressColor: 'pink',
     height: 60,
@@ -11,11 +10,12 @@ const wavesurferLeft = WaveSurfer.create({
 
 // Initialize WaveSurfer for Deck B
 const wavesurferRight = WaveSurfer.create({
-    container: '#jog-wheel-right',
+    container: '#waveform-right',
     waveColor: '#4F4A85',
     progressColor: '#383351',
     height: 60,
     barWidth: 2,
+    responsive: true,
 });
 
 // Preserve Pitch Flags
@@ -106,16 +106,3 @@ function setupDeckControls(deck, wavesurfer) {
 // Initialize controls for both decks
 setupDeckControls('left', wavesurferLeft);
 setupDeckControls('right', wavesurferRight);
-
-
-// Select the volume slider
-const volumeSlider = document.getElementById('volume-slider');
-
-// Function to adjust volume for both decks
-volumeSlider.addEventListener('input', (event) => {
-    const volume = event.target.value / 100; // Convert slider value (0-100) to 0.0-1.0
-    wavesurferLeft.setVolume(volume); // Set volume for Deck A
-    wavesurferRight.setVolume(volume); // Set volume for Deck B
-
-    console.log(`Volume adjusted to: ${volume * 100}%`);
-});
