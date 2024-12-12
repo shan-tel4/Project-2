@@ -1,9 +1,11 @@
 import WaveSurfer from 'https://cdn.jsdelivr.net/npm/wavesurfer.js@7/dist/wavesurfer.esm.js';
 
+
+// find a place for wave surfer
 const wavesurferLeft = WaveSurfer.create({
     container: '#waveform-left',
-    waveColor: '#4F4A85',
-    progressColor: 'pink',
+    waveColor: '#343654',
+    progressColor: '##343654',
     height: 60,
     barWidth: 2,
 });
@@ -12,7 +14,7 @@ const wavesurferLeft = WaveSurfer.create({
 const wavesurferRight = WaveSurfer.create({
     container: '#waveform-right',
     waveColor: '#4F4A85',
-    progressColor: '#383351',
+    progressColor: '#343654',
     height: 60,
     barWidth: 2,
     responsive: true,
