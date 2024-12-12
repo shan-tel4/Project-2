@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 /* General Styling */
@@ -6,7 +5,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
 }
 
 body {
@@ -22,7 +20,7 @@ body {
 
 .dj-mixer {
     display: grid;
-    grid-template-columns: 1fr 0.5fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
     padding: 20px;
     max-width: 1200px;
@@ -33,7 +31,7 @@ body {
 }
 
 .logo {
-    grid-column: span 3;
+    grid-column: span 2;
     text-align: center;
     font-size: 36px;
     font-weight: bold;
@@ -63,8 +61,8 @@ body {
 /* Jog Wheel Styling */
 .jog-container {
     position: relative;
-    width: 250px; /* Increased size for realism */
-    height: 250px; /* Increased size for realism */
+    width: 250px;
+    height: 250px;
     background: radial-gradient(circle, #20243e, #14162b);
     border-radius: 50%;
     border: 6px solid #4F4A85;
@@ -116,7 +114,7 @@ body {
 .jog-marker {
     position: absolute;
     width: 10px;
-    height: 70px; /* Made longer for realism */
+    height: 70px;
     background: #f5b0c4;
     top: 0;
     left: 50%;
@@ -202,115 +200,6 @@ body {
     accent-color: #f5b0c4;
 }
 
-/* Volume Controller Container */
-.volume-controller {
-    width: 100px;
-    height: 300px;
-    background: #4F4A85;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-  }
-  
-  /* Slider Track */
-  .slider-track {
-    width: 6px;
-    height: 220px;
-    background: #000;
-    border-radius: 3px;
-    position: relative;
-  }
-  
-  /* Slider (hidden input for functionality) */
-  .slider {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0; /* Hide the input itself */
-    cursor: pointer;
-  }
-  
-  /* Slider Thumb (mimics the movable part) */
-  .slider-indicator {
-    width: 60px;
-    height: 20px;
-    background: linear-gradient(to bottom, #ffffff, #d8d8d8);
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none; /* Ensure the slider thumb is not clickable */
-    border: 1px solid #444444;
-  }
-  
-  /* Dynamic Track Adjustment */
-  .slider-track::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    background: #000;
-    top: 0;
-    left: 0;
-    height: 50%; /* Adjust dynamically with JS */
-    z-index: -1;
-    border-radius: 3px;
-  }
- 
-  .mixer {
-    display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: flex-start; /* Align at the top */
-    position: relative;
-    gap: 20px; /* Adjust the gap between the decks */
-}
 
-.volume-controller {
-    width: 60px; /* Width of the volume controller container */
-    height: 300px; /* Height of the volume controller container */
-    display: flex;
-    justify-content: center; /* Center the slider horizontally */
-    align-items: center; /* Center the slider vertically */
-    position: relative;
-}
 
-.slider {
-    appearance: none; /* Remove default browser styles */
-    width: 8px; /* Width of the slider track */
-    height: 100%; /* Height matches the container for vertical movement */
-    background: #ccc; /* Track background */
-    border-radius: 4px; /* Rounded edges for a clean look */
-    outline: none; /* Remove focus outline */
-    transform: rotate(-90deg); /* Rotate the slider to make it vertical */
-    position: absolute;
-}
 
-/* Style the slider thumb */
-.slider::-webkit-slider-thumb {
-    appearance: none;
-    width: 20px; /* Size of the thumb */
-    height: 20px;
-    background: #f5b0c4; /* Thumb color */
-    border-radius: 50%; /* Circular thumb */
-    cursor: pointer; /* Pointer cursor */
-}
-
-.slider::-moz-range-thumb {
-    width: 20px;
-    height: 20px;
-    background: #f5b0c4;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-.slider::-ms-thumb {
-    width: 20px;
-    height: 20px;
-    background: #f5b0c4;
-    border-radius: 50%;
-    cursor: pointer;
-}
