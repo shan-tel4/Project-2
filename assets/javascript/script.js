@@ -1,110 +1,104 @@
 import WaveSurfer from 'https://cdn.jsdelivr.net/npm/wavesurfer.js@7/dist/wavesurfer.esm.js';
 
+alert("Hello! Welcome to Shay Mixer 5000!");
 
-// find a place for wave surfer
+// Initialize WaveSurfer for Deck A 
 const wavesurferLeft = WaveSurfer.create({
-    container: '#waveform-left',
-    waveColor: '#343654',
-    progressColor: '##343654',
+    container: '#waveform-left', // hidden will place wavesurfer in a difference place
+    waveColor: '#343654', // hidden will place wavesurfer in a difference place
+    progressColor: '#343654',  // hidden will place wavesurfer in a difference place
     height: 60,
     barWidth: 2,
 });
 
 // Initialize WaveSurfer for Deck B
 const wavesurferRight = WaveSurfer.create({
-    container: '#waveform-right',
-    waveColor: '#4F4A85',
-    progressColor: '#343654',
+    container: '#waveform-right', // hidden will place wavesurfer in a difference place
+    waveColor: '#343654', // hidden will place wavesurfer in a difference place
+    progressColor: '#343654', // Fixed color for progress
     height: 60,
     barWidth: 2,
-    responsive: true,
 });
-
-// Preserve Pitch Flags
-let preservePitchLeft = true;
-let preservePitchRight = true;
 
 // Available Speeds
 const speeds = [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2];
 
-// Handle Audio Upload for Deck A
+// Audio Upload Handlers
 document.getElementById('audio-uploader-left').addEventListener('change', (event) => {
     const file = event.target.files[0];
     if (file) {
         const fileURL = URL.createObjectURL(file);
-        wavesurferLeft.load(fileURL);
-        console.log('Deck A: Audio loaded');
+        wavesurferLeft.load(fileURL); // Load the audio file into WaveSurfer
+        console.log('Deck A: Audio file loaded successfully');
     } else {
-        console.error('Deck A: No audio file selected');
+        console.error('Deck A: No file selected');
     }
 });
 
-// Handle Audio Upload for Deck B
 document.getElementById('audio-uploader-right').addEventListener('change', (event) => {
     const file = event.target.files[0];
     if (file) {
         const fileURL = URL.createObjectURL(file);
-        wavesurferRight.load(fileURL);
-        console.log('Deck B: Audio loaded');
+        wavesurferRight.load(fileURL); // Load the audio file into WaveSurfer
+        console.log('Deck B: Audio file loaded successfully');
     } else {
-        console.error('Deck B: No audio file selected');
+        console.error('Deck B: No file selected');
     }
 });
 
-// Set up controls for each deck
+// Controls Setup
 function setupDeckControls(deck, wavesurfer) {
     const prefix = deck === 'left' ? 'left' : 'right';
 
     // Play Button
     document.querySelector(`.deck-${deck} .pad.play`).addEventListener('click', () => {
-        wavesurfer.play();
-        document.querySelector(`#jog-wheel-${deck}`).classList.add('playing');
-        console.log(`Deck ${deck.toUpperCase()}: Playing`);
+        wavesurfer.playPause(); // Toggle play/pause
+        const isPlaying = wavesurfer.isPlaying();
+        document.querySelector(`#jog-wheel-${deck}`).classList.toggle('playing', isPlaying);
+        console.log(`Deck ${deck.toUpperCase()}: ${isPlaying ? 'Playing' : 'Paused'}`);
     });
 
     // Pause Button
     document.querySelector(`.deck-${deck} .pad.pause`).addEventListener('click', () => {
-        wavesurfer.pause();
+        wavesurfer.pause(); // Pause audio
         document.querySelector(`#jog-wheel-${deck}`).classList.remove('playing');
         console.log(`Deck ${deck.toUpperCase()}: Paused`);
     });
 
-    // Loop Button
-    document.querySelector(`.deck-${deck} .pad.loop`).addEventListener('click', () => {
-        const isLooping = wavesurfer.getLoop();
-        wavesurfer.setLoop(!isLooping);
-        document.querySelector(`.deck-${deck} .pad.loop`).classList.toggle('active', !isLooping);
-        console.log(`Deck ${deck.toUpperCase()}: Looping ${!isLooping ? 'enabled' : 'disabled'}`);
-    });
-
-    // Speed Slider
+    // Speed Control
     document.querySelector(`#speed-slider-${prefix}`).addEventListener('input', (e) => {
-        const speed = speeds[e.target.valueAsNumber];
+        const speed = speeds[e.target.value];
+        wavesurfer.setPlaybackRate(speed); // Set playback speed
         document.querySelector(`#rate-${prefix}`).textContent = speed.toFixed(2);
-        wavesurfer.setPlaybackRate(speed, deck === 'left' ? preservePitchLeft : preservePitchRight);
         console.log(`Deck ${deck.toUpperCase()}: Playback rate set to ${speed}`);
     });
 
-    // Preserve Pitch
+    // Preserve Pitch Checkbox
     document.querySelector(`#preserve-pitch-${prefix}`).addEventListener('change', (e) => {
-        if (deck === 'left') {
-            preservePitchLeft = e.target.checked;
-        } else {
-            preservePitchRight = e.target.checked;
-        }
-        wavesurfer.setPlaybackRate(wavesurfer.getPlaybackRate(), e.target.checked);
-        console.log(`Deck ${deck.toUpperCase()}: Preserve pitch ${e.target.checked ? 'enabled' : 'disabled'}`);
+        wavesurfer.setPlaybackRate(wavesurfer.getPlaybackRate()); // Update playback rate
+        console.log(
+            `Deck ${deck.toUpperCase()}: Preserve pitch ${
+                e.target.checked ? 'enabled' : 'disabled'
+            }`
+        );
     });
 
     // Ensure jog wheel animates during playback
     wavesurfer.on('play', () => {
         document.querySelector(`#jog-wheel-${deck}`).classList.add('playing');
     });
+
     wavesurfer.on('pause', () => {
+        document.querySelector(`#jog-wheel-${deck}`).classList.remove('playing');
+    });
+
+    // Log when audio finishes
+    wavesurfer.on('finish', () => {
+        console.log(`Deck ${deck.toUpperCase()}: Audio finished`);
         document.querySelector(`#jog-wheel-${deck}`).classList.remove('playing');
     });
 }
 
-// Initialize controls for both decks
+// Initialize Controls for Both Decks
 setupDeckControls('left', wavesurferLeft);
 setupDeckControls('right', wavesurferRight);

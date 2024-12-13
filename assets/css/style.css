@@ -20,10 +20,10 @@ body {
 
 .dj-mixer {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    grid-template-columns: 1fr 1fr; /* Ensure equal space for both decks */
+    gap: 20px; /* Adjust as needed */
     padding: 20px;
-    max-width: 1200px;
+    max-width: 1200px; /* Adjust the width to fit your layout */
     width: 100%;
     background: #2a2d43;
     border-radius: 15px;
@@ -50,6 +50,8 @@ body {
     gap: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
+
+
 
 .deck-label {
     font-size: 18px;
@@ -199,7 +201,6 @@ body {
 .speed-control input[type="checkbox"] {
     accent-color: #f5b0c4;
 }
-
 
 
 
