@@ -10,10 +10,11 @@ const speeds = [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2];
 const wavesurferLeft = WaveSurfer.create({
     container: '#waveform-left',
     waveColor: '#4a4d63',
-    progressColor: '#343654',  
+    progressColor: '#343654',
     height: 60,
     barWidth: 2,
     responsive: true,
+    volume: 1.0, // Initial volume full
 });
 
 // WaveSurfer Initialization for Deck B
@@ -24,6 +25,7 @@ const wavesurferRight = WaveSurfer.create({
     height: 60,
     barWidth: 2,
     responsive: true,
+    volume: 1.0, // Initial volume full
 });
 
 // Function to Setup Controls for a Deck
@@ -42,7 +44,7 @@ function setupDeckControls(deckName, wavesurferInstance) {
 
     // Play Button
     document.querySelector(`.deck-${deckName} .pad.play`).addEventListener('click', () => {
-        if (!wavesurferInstance.isPlaying()) { // Only play if not already playing
+        if (!wavesurferInstance.isPlaying()) {
             wavesurferInstance.play();
             document.querySelector(`#jog-wheel-${deckName}`).classList.add('playing');
             console.log(`Deck ${deckName.toUpperCase()}: Playing`);
@@ -51,11 +53,9 @@ function setupDeckControls(deckName, wavesurferInstance) {
 
     // Pause Button
     document.querySelector(`.deck-${deckName} .pad.pause`).addEventListener('click', () => {
-        if (wavesurferInstance.isPlaying()) { // Only pause if currently playing
-            wavesurferInstance.pause();
-            document.querySelector(`#jog-wheel-${deckName}`).classList.remove('playing');
-            console.log(`Deck ${deckName.toUpperCase()}: Paused`);
-        }
+        wavesurferInstance.pause();
+        document.querySelector(`#jog-wheel-${deckName}`).classList.remove('playing');
+        console.log(`Deck ${deckName.toUpperCase()}: Paused`);
     });
 
     // Speed Slider
@@ -66,32 +66,20 @@ function setupDeckControls(deckName, wavesurferInstance) {
         document.getElementById(`rate-${prefix}`).textContent = speed.toFixed(2);
         console.log(`Deck ${deckName.toUpperCase()}: Speed set to ${speed}`);
     });
-
-    // Preserve Pitch
-    document.getElementById(`preserve-pitch-${prefix}`).addEventListener('change', (e) => {
-        wavesurferInstance.setPlaybackRate(wavesurferInstance.getPlaybackRate());
-        console.log(
-            `Deck ${deckName.toUpperCase()}: Preserve pitch ${
-                e.target.checked ? 'enabled' : 'disabled'
-            }`
-        );
-    });
-
-    // Event Listeners for Jog Wheel Animation
-    wavesurferInstance.on('play', () => {
-        document.querySelector(`#jog-wheel-${deckName}`).classList.add('playing');
-    });
-
-    wavesurferInstance.on('pause', () => {
-        document.querySelector(`#jog-wheel-${deckName}`).classList.remove('playing');
-    });
-
-    wavesurferInstance.on('finish', () => {
-        console.log(`Deck ${deckName.toUpperCase()}: Finished`);
-        document.querySelector(`#jog-wheel-${deckName}`).classList.remove('playing');
-    });
 }
 
 // Initialize Controls for Both Decks
 setupDeckControls('left', wavesurferLeft);
 setupDeckControls('right', wavesurferRight);
+
+// Crossfader Logic
+const crossfader = document.getElementById('crossfader-slider');
+crossfader.addEventListener('input', (e) => {
+    const value = parseInt(e.target.value, 10) / 100; // Normalize to 0 - 1
+
+    // Adjust volumes of both decks
+    wavesurferLeft.setVolume(1 - value); // Volume decreases as slider moves right
+    wavesurferRight.setVolume(value);   // Volume increases as slider moves right
+
+    console.log(`Crossfader: Left Volume = ${(1 - value).toFixed(2)}, Right Volume = ${value.toFixed(2)}`);
+});
