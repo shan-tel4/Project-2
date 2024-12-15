@@ -1,8 +1,5 @@
 import WaveSurfer from 'https://cdn.jsdelivr.net/npm/wavesurfer.js@7/dist/wavesurfer.esm.js';
 
-// Show welcome alert
-alert("Hello! Welcome to Shay Mixer 5000!");
-
 // Speed options
 const speeds = [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2];
 
@@ -10,27 +7,26 @@ const speeds = [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2];
 const wavesurferLeft = WaveSurfer.create({
     container: '#waveform-left',
     waveColor: '#4a4d63',
-    progressColor: '#343654',
+    progressColor: '#f5b0c4',
     height: 60,
     barWidth: 2,
     responsive: true,
-    volume: 1.0, // Initial volume full
 });
 
 // WaveSurfer Initialization for Deck B
 const wavesurferRight = WaveSurfer.create({
     container: '#waveform-right',
     waveColor: '#4a4d63',
-    progressColor: '#343654',
+    progressColor: '#f5b0c4',
     height: 60,
     barWidth: 2,
     responsive: true,
-    volume: 1.0, // Initial volume full
 });
 
 // Function to Setup Controls for a Deck
 function setupDeckControls(deckName, wavesurferInstance) {
     const prefix = deckName === 'left' ? 'left' : 'right';
+    const jogWheel = document.querySelector(`#jog-wheel-${deckName}`);
 
     // Audio Upload
     document.getElementById(`audio-uploader-${prefix}`).addEventListener('change', (event) => {
@@ -39,6 +35,8 @@ function setupDeckControls(deckName, wavesurferInstance) {
             const fileURL = URL.createObjectURL(file);
             wavesurferInstance.load(fileURL);
             console.log(`Deck ${deckName.toUpperCase()}: File Loaded`);
+        } else {
+            console.error(`Deck ${deckName.toUpperCase()}: No file selected`);
         }
     });
 
@@ -46,40 +44,34 @@ function setupDeckControls(deckName, wavesurferInstance) {
     document.querySelector(`.deck-${deckName} .pad.play`).addEventListener('click', () => {
         if (!wavesurferInstance.isPlaying()) {
             wavesurferInstance.play();
-            document.querySelector(`#jog-wheel-${deckName}`).classList.add('playing');
+            jogWheel.classList.add('playing');
             console.log(`Deck ${deckName.toUpperCase()}: Playing`);
+        } else {
+            console.warn(`Deck ${deckName.toUpperCase()}: Already playing`);
         }
     });
 
     // Pause Button
     document.querySelector(`.deck-${deckName} .pad.pause`).addEventListener('click', () => {
-        wavesurferInstance.pause();
-        document.querySelector(`#jog-wheel-${deckName}`).classList.remove('playing');
-        console.log(`Deck ${deckName.toUpperCase()}: Paused`);
+        if (wavesurferInstance.isPlaying()) {
+            wavesurferInstance.pause();
+            jogWheel.classList.remove('playing');
+            console.log(`Deck ${deckName.toUpperCase()}: Paused`);
+        }
     });
 
-    // Speed Slider
-    document.getElementById(`speed-slider-${prefix}`).addEventListener('input', (e) => {
-        const speedIndex = parseInt(e.target.value, 10);
-        const speed = speeds[speedIndex];
-        wavesurferInstance.setPlaybackRate(speed);
-        document.getElementById(`rate-${prefix}`).textContent = speed.toFixed(2);
-        console.log(`Deck ${deckName.toUpperCase()}: Speed set to ${speed}`);
+    // Stop spinning when audio finishes
+    wavesurferInstance.on('finish', () => {
+        jogWheel.classList.remove('playing');
+        console.log(`Deck ${deckName.toUpperCase()}: Audio finished`);
+    });
+
+    // Log any errors during file loading
+    wavesurferInstance.on('error', (err) => {
+        console.error(`Deck ${deckName.toUpperCase()}: Error -`, err);
     });
 }
 
 // Initialize Controls for Both Decks
 setupDeckControls('left', wavesurferLeft);
 setupDeckControls('right', wavesurferRight);
-
-// Crossfader Logic
-const crossfader = document.getElementById('crossfader-slider');
-crossfader.addEventListener('input', (e) => {
-    const value = parseInt(e.target.value, 10) / 100; // Normalize to 0 - 1
-
-    // Adjust volumes of both decks
-    wavesurferLeft.setVolume(1 - value); // Volume decreases as slider moves right
-    wavesurferRight.setVolume(value);   // Volume increases as slider moves right
-
-    console.log(`Crossfader: Left Volume = ${(1 - value).toFixed(2)}, Right Volume = ${value.toFixed(2)}`);
-});
