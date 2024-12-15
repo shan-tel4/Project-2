@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 /* General Styling */
 * {
@@ -20,11 +20,11 @@ body {
 
 .dj-mixer {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Ensure equal space for both decks */
-    gap: 20px; /* Adjust as needed */
-    padding: 20px;
-    max-width: 1200px; /* Adjust the width to fit your layout */
-    width: 100%;
+    grid-template-columns: 1fr 1fr; /* Equal space for both decks */
+    gap: 15px; /* Reduced gap between decks */
+    padding: 15px; /* Reduced padding */
+    max-width: 1000px; /* Smaller overall container */
+    width: 90%; /* Responsive width */
     background: #2a2d43;
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
@@ -33,28 +33,68 @@ body {
 .logo {
     grid-column: span 2;
     text-align: center;
-    font-size: 36px;
+    font-size: 30px; /* Slightly smaller text */
     font-weight: bold;
     color: #f5b0c4;
-    margin-bottom: 20px;
+    margin-top: 40px; /* Adjust spacing */
+}
+
+/* Crossfader Styling */
+.crossfader {
+    grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+    gap: 5px;
+}
+
+.crossfader label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #f5b0c4;
+    opacity: 0.9;
+}
+
+.crossfader input[type="range"] {
+    width: 50%;
+    max-width: 400px;
+    appearance: none;
+    background: #4F4A85;
+    height: 6px;
+    border-radius: 5px;
+    outline: none;
+}
+
+.crossfader input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    background: #f5b0c4;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* Deck Styling */
 .deck {
     background: #343654;
-    padding: 20px;
+    padding: 15px; /* Reduced padding */
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 8px; /* Tighter spacing between elements */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-
+.deck-right {
+    margin-left: 0; /* Corrected alignment */
+}
 
 .deck-label {
-    font-size: 18px;
+    font-size: 16px; /* Slightly smaller text */
     font-weight: bold;
     color: #f5b0c4;
     text-transform: uppercase;
@@ -63,15 +103,16 @@ body {
 /* Jog Wheel Styling */
 .jog-container {
     position: relative;
-    width: 250px;
-    height: 250px;
+    width: 180px; /* Reduced size */
+    height: 180px;
     background: radial-gradient(circle, #20243e, #14162b);
     border-radius: 50%;
-    border: 6px solid #4F4A85;
+    border: 4px solid #4F4A85;
     box-shadow: 
         inset 0 2px 5px rgba(0, 0, 0, 0.5), 
         0 5px 15px rgba(0, 0, 0, 0.3);
     overflow: hidden;
+    margin-top: 5px; /* Adjust spacing */
 }
 
 .jog-container::before {
@@ -89,20 +130,12 @@ body {
     position: absolute;
     top: 2.5%;
     left: 2.5%;
-    z-index: 1;
-}
-
-.jog-wheel {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    position: relative;
 }
 
 .jog-wheel::after {
     content: '';
-    width: 50px;
-    height: 50px;
+    width: 35px;
+    height: 35px;
     background: radial-gradient(circle, #14162b, #20243e);
     border: 2px solid #f5b0c4;
     border-radius: 50%;
@@ -110,54 +143,34 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 2;
-}
-
-.jog-marker {
-    position: absolute;
-    width: 10px;
-    height: 70px;
-    background: #f5b0c4;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    transform-origin: center 100px;
-    animation: spin 2s linear infinite paused;
-}
-
-.jog-wheel.playing .jog-marker {
-    animation-play-state: running;
-}
-
-@keyframes spin {
-    from {
-        transform: translateX(-50%) rotate(0deg);
-    }
-    to {
-        transform: translateX(-50%) rotate(360deg);
-    }
 }
 
 /* Pads */
 .pad-row {
     display: flex;
+    flex-direction: column; /* Stack rows vertically */
+    gap: 20px; /* Gap between top and bottom rows */
+}
+
+.button-group {
+    display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 15px;
+    gap: 10px; /* Space between buttons */
 }
 
 .pad {
-    width: 60px;
-    height: 60px;
+    width: 50px; /* Smaller buttons */
+    height: 50px;
     background: #4a4d63;
     border: none;
     border-radius: 5px;
-    display: inline-flex;
+    display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 24px;
+    font-size: 18px; /* Adjusted icon size */
     color: #fff;
     cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
 }
 
 .pad:hover {
@@ -165,13 +178,19 @@ body {
     color: #000;
 }
 
+.button-group .pad:nth-child(4) { 
+    gap: 10px;
+    margin-bottom: 20px; /* Adjust this value as needed */
+}
+
+
 /* Speed Control Styling */
 .speed-control {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5px;
-    margin-left: 10px;
+    gap: 3px;
+    margin-top: 10px;
 }
 
 .speed-control label {
@@ -180,7 +199,7 @@ body {
 }
 
 .speed-control input[type="range"] {
-    width: 120px;
+    width: 100px;
     appearance: none;
     background: #4F4A85;
     height: 4px;
@@ -195,12 +214,4 @@ body {
     background: #f5b0c4;
     border-radius: 50%;
     cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
-
-.speed-control input[type="checkbox"] {
-    accent-color: #f5b0c4;
-}
-
-
-
