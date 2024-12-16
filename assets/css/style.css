@@ -51,6 +51,80 @@ body {
     width: 50%;
 }
 
+
+/* Style the crossfader container */
+.crossfader {
+    grid-column: span 2;
+    font-family: "Rowdies", sans-serif;
+    font-weight: 700;
+    text-align: center;
+    margin: 10px 0;
+    color: #f5b0c4; /* Pink text color */
+}
+
+/* Style the crossfader track */
+#crossfader-slider {
+    -webkit-appearance: none; /* Remove default styling for webkit browsers */
+    width: 100%; /* Full width */
+    height: 10px; /* Track height */
+    background: linear-gradient(to right, #4F4A85, #f5b0c4); /* Gradient background: Purple to Pink */
+    border-radius: 5px; /* Rounded corners */
+    outline: none; /* Remove outline when focused */
+    margin: 10px 0;
+    transition: background 0.3s;
+}
+
+/* Style the thumb (handle) */
+#crossfader-slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Remove default thumb styling for webkit browsers */
+    appearance: none;
+    width: 20px; /* Thumb width */
+    height: 20px; /* Thumb height */
+    background: #f5b0c4; /* Pink thumb color */
+    border: 2px solid #2a2d43; /* Border matches the DJ mixer background */
+    border-radius: 50%; /* Circular thumb */
+    cursor: pointer; /* Pointer cursor for better UX */
+    transition: background 0.3s, transform 0.2s;
+}
+
+#crossfader-slider::-webkit-slider-thumb:hover {
+    background: #4F4A85; /* Change thumb color on hover to purple */
+    transform: scale(1.2); /* Slight zoom effect on hover */
+}
+
+/* For Firefox */
+#crossfader-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #f5b0c4;
+    border: 2px solid #2a2d43;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+#crossfader-slider::-moz-range-thumb:hover {
+    background: #4F4A85;
+    transform: scale(1.2);
+}
+
+/* For Internet Explorer/Edge */
+#crossfader-slider::-ms-thumb {
+    width: 20px;
+    height: 20px;
+    background: #f5b0c4;
+    border: 2px solid #2a2d43;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+#crossfader-slider::-ms-thumb:hover {
+    background: #4F4A85;
+    transform: scale(1.2);
+}
+
+
 .deck {
     background: #343654;
     border-radius: 10px;
