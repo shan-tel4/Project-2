@@ -25,6 +25,7 @@ const wavesurferRight = WaveSurfer.create({
     responsive: true,
 });
 
+
 // Function to Setup Controls for a Deck
 function setupDeckControls(deckName, wavesurferInstance) {
     const prefix = deckName === 'left' ? 'left' : 'right';
