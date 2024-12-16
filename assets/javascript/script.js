@@ -95,6 +95,32 @@ crossfader.addEventListener('input', updateDeckVolumes);
 updateDeckVolumes();
 
 
+
+// Speed Slider Logic
+function setupSpeedControl(deckName, wavesurferInstance) {
+    const prefix = deckName === 'left' ? 'left' : 'right';
+    const speedSlider = document.getElementById(`speed-slider-${prefix}`);
+    const speedLabel = document.getElementById(`rate-${prefix}`);
+
+    // Update Speed when Slider Changes
+    speedSlider.addEventListener('input', () => {
+        const speedValue = speeds[speedSlider.value]; // Get speed from array using slider value
+        wavesurferInstance.setPlaybackRate(speedValue); // Set playback rate
+        speedLabel.textContent = speedValue.toFixed(2); // Update displayed speed
+        console.log(`Deck ${deckName.toUpperCase()}: Speed set to ${speedValue}`);
+    });
+
+    // Initialize Speed Control
+    const initialSpeed = speeds[speedSlider.value];
+    wavesurferInstance.setPlaybackRate(initialSpeed);
+    speedLabel.textContent = initialSpeed.toFixed(2);
+}
+
+// Apply Speed Control to Both Decks
+setupSpeedControl('left', wavesurferLeft);
+setupSpeedControl('right', wavesurferRight);
+
+
 // Initialize Controls for Both Decks
 setupDeckControls('left', wavesurferLeft);
 setupDeckControls('right', wavesurferRight);
