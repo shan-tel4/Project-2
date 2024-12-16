@@ -29,6 +29,9 @@ const wavesurferRight = WaveSurfer.create({
 function setupDeckControls(deckName, wavesurferInstance) {
     const prefix = deckName === 'left' ? 'left' : 'right';
     const jogWheel = document.querySelector(`#jog-wheel-${deckName}`);
+    let isLooping = false; // Loop toggle state
+    let loopStart = 0; // Default loop start time
+    let loopEnd = 5; // Default loop duration in seconds
 
     // Audio Upload
     document.getElementById(`audio-uploader-${prefix}`).addEventListener('change', (event) => {
@@ -60,17 +63,43 @@ function setupDeckControls(deckName, wavesurferInstance) {
         }
     });
 
-    // Rewind Button (Cue/Backward)
+    // Rewind Button (Cue)
     document.querySelector(`.deck-${deckName} .pad.cue`).addEventListener('click', () => {
-        const rewindSeconds = 5; // Adjust the rewind time in seconds
-        const currentTime = wavesurferInstance.getCurrentTime();
-        
-        if (currentTime - rewindSeconds >= 0) {
-            wavesurferInstance.skipBackward(rewindSeconds);
+        const rewindSeconds = 5; // Time to rewind
+        const currentTime = wavesurferInstance.getCurrentTime(); // Current playback time
+        const duration = wavesurferInstance.getDuration(); // Total duration of the audio
+
+        if (currentTime - rewindSeconds > 0) {
+            const newTime = (currentTime - rewindSeconds) / duration; // Calculate new position
+            wavesurferInstance.seekTo(newTime);
+            console.log(`Deck ${deckName.toUpperCase()}: Rewinded by ${rewindSeconds} seconds`);
         } else {
-            wavesurferInstance.seekTo(0); // Seek to the beginning
+            wavesurferInstance.seekTo(0); // Reset to the start if out of range
+            console.log(`Deck ${deckName.toUpperCase()}: Rewinded to the start`);
         }
-        console.log(`Deck ${deckName.toUpperCase()}: Rewinded by ${rewindSeconds} seconds`);
+    });
+
+    // Loop Button
+    document.querySelector(`.deck-${deckName} .pad.loop`).addEventListener('click', () => {
+        isLooping = !isLooping; // Toggle looping
+        if (isLooping) {
+            loopStart = wavesurferInstance.getCurrentTime(); // Set loop start to current time
+            loopEnd = Math.min(loopStart + 5, wavesurferInstance.getDuration()); // Set loop end (5 seconds or end of track)
+            console.log(`Deck ${deckName.toUpperCase()}: Loop ON (Start: ${loopStart}s, End: ${loopEnd}s)`);
+        } else {
+            console.log(`Deck ${deckName.toUpperCase()}: Loop OFF`);
+        }
+    });
+
+    // Monitor Playback and Handle Looping
+    wavesurferInstance.on('audioprocess', () => {
+        if (isLooping) {
+            const currentTime = wavesurferInstance.getCurrentTime();
+            if (currentTime >= loopEnd) {
+                wavesurferInstance.seekTo(loopStart / wavesurferInstance.getDuration());
+                console.log(`Deck ${deckName.toUpperCase()}: Looping back to ${loopStart}s`);
+            }
+        }
     });
 
     // Stop spinning when audio finishes
