@@ -72,6 +72,29 @@ function setupDeckControls(deckName, wavesurferInstance) {
     });
 }
 
+
+// Crossfader Logic
+const crossfader = document.getElementById('crossfader-slider');
+
+// Update Deck Volumes Based on Crossfader
+function updateDeckVolumes() {
+    const crossfaderValue = parseInt(crossfader.value, 10); // Get slider value (0 to 100)
+    const volumeLeft = (100 - crossfaderValue) / 100; // Left deck volume
+    const volumeRight = crossfaderValue / 100; // Right deck volume
+
+    wavesurferLeft.setVolume(volumeLeft); // Set Left Deck Volume
+    wavesurferRight.setVolume(volumeRight); // Set Right Deck Volume
+
+    console.log(`Crossfader: ${crossfaderValue} | Deck A Volume: ${volumeLeft} | Deck B Volume: ${volumeRight}`);
+}
+
+// Add Event Listener to Crossfader
+crossfader.addEventListener('input', updateDeckVolumes);
+
+// Initialize Crossfader at the Center
+updateDeckVolumes();
+
+
 // Initialize Controls for Both Decks
 setupDeckControls('left', wavesurferLeft);
 setupDeckControls('right', wavesurferRight);
