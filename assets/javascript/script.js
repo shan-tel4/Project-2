@@ -46,8 +46,6 @@ function setupDeckControls(deckName, wavesurferInstance) {
             wavesurferInstance.play();
             jogWheel.classList.add('playing');
             console.log(`Deck ${deckName.toUpperCase()}: Playing`);
-        } else {
-            console.warn(`Deck ${deckName.toUpperCase()}: Already playing`);
         }
     });
 
@@ -60,41 +58,38 @@ function setupDeckControls(deckName, wavesurferInstance) {
         }
     });
 
+    // Rewind Button (Cue/Backward)
+    document.querySelector(`.deck-${deckName} .pad.cue`).addEventListener('click', () => {
+        const rewindSeconds = 5; // Adjust the rewind time in seconds
+        const currentTime = wavesurferInstance.getCurrentTime();
+        
+        if (currentTime - rewindSeconds >= 0) {
+            wavesurferInstance.skipBackward(rewindSeconds);
+        } else {
+            wavesurferInstance.seekTo(0); // Seek to the beginning
+        }
+        console.log(`Deck ${deckName.toUpperCase()}: Rewinded by ${rewindSeconds} seconds`);
+    });
+
     // Stop spinning when audio finishes
     wavesurferInstance.on('finish', () => {
         jogWheel.classList.remove('playing');
         console.log(`Deck ${deckName.toUpperCase()}: Audio finished`);
     });
-
-    // Log any errors during file loading
-    wavesurferInstance.on('error', (err) => {
-        console.error(`Deck ${deckName.toUpperCase()}: Error -`, err);
-    });
 }
-
 
 // Crossfader Logic
 const crossfader = document.getElementById('crossfader-slider');
-
-// Update Deck Volumes Based on Crossfader
 function updateDeckVolumes() {
-    const crossfaderValue = parseInt(crossfader.value, 10); // Get slider value (0 to 100)
-    const volumeLeft = (100 - crossfaderValue) / 100; // Left deck volume
-    const volumeRight = crossfaderValue / 100; // Right deck volume
+    const crossfaderValue = parseInt(crossfader.value, 10);
+    const volumeLeft = (100 - crossfaderValue) / 100;
+    const volumeRight = crossfaderValue / 100;
 
-    wavesurferLeft.setVolume(volumeLeft); // Set Left Deck Volume
-    wavesurferRight.setVolume(volumeRight); // Set Right Deck Volume
-
-    console.log(`Crossfader: ${crossfaderValue} | Deck A Volume: ${volumeLeft} | Deck B Volume: ${volumeRight}`);
+    wavesurferLeft.setVolume(volumeLeft);
+    wavesurferRight.setVolume(volumeRight);
 }
-
-// Add Event Listener to Crossfader
 crossfader.addEventListener('input', updateDeckVolumes);
-
-// Initialize Crossfader at the Center
 updateDeckVolumes();
-
-
 
 // Speed Slider Logic
 function setupSpeedControl(deckName, wavesurferInstance) {
@@ -102,25 +97,18 @@ function setupSpeedControl(deckName, wavesurferInstance) {
     const speedSlider = document.getElementById(`speed-slider-${prefix}`);
     const speedLabel = document.getElementById(`rate-${prefix}`);
 
-    // Update Speed when Slider Changes
     speedSlider.addEventListener('input', () => {
-        const speedValue = speeds[speedSlider.value]; // Get speed from array using slider value
-        wavesurferInstance.setPlaybackRate(speedValue); // Set playback rate
-        speedLabel.textContent = speedValue.toFixed(2); // Update displayed speed
-        console.log(`Deck ${deckName.toUpperCase()}: Speed set to ${speedValue}`);
+        const speedValue = speeds[speedSlider.value];
+        wavesurferInstance.setPlaybackRate(speedValue);
+        speedLabel.textContent = speedValue.toFixed(2);
     });
 
-    // Initialize Speed Control
     const initialSpeed = speeds[speedSlider.value];
     wavesurferInstance.setPlaybackRate(initialSpeed);
     speedLabel.textContent = initialSpeed.toFixed(2);
 }
 
-// Apply Speed Control to Both Decks
 setupSpeedControl('left', wavesurferLeft);
 setupSpeedControl('right', wavesurferRight);
-
-
-// Initialize Controls for Both Decks
 setupDeckControls('left', wavesurferLeft);
 setupDeckControls('right', wavesurferRight);
