@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap');
 
+
 /* General Styling */
 * {
     margin: 0;
@@ -92,7 +93,7 @@ body {
     transform: scale(1.2); /* Slight zoom effect on hover */
 }
 
-/* For Firefox */
+
 #crossfader-slider::-moz-range-thumb {
     width: 20px;
     height: 20px;
@@ -194,11 +195,75 @@ body {
 }
 
 
+/* Tooltip Styling */
+.pad {
+    position: relative; /* Context for positioning the tooltip */
+}
+
+.pad::after {
+    content: attr(data-tooltip); /* Get tooltip text from data-tooltip attribute */
+    position: absolute;
+    bottom: 120%; /* Position tooltip above the button */
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8); /* Dark semi-transparent background */
+    color: #fff; /* White text color */
+    font-size: 12px;
+    padding: 5px 8px;
+    border-radius: 4px; /* Rounded corners */
+    white-space: nowrap; /* Prevent wrapping */
+    opacity: 0; /* Hidden by default */
+    pointer-events: none; /* Ignore mouse events */
+    transition: opacity 0.2s ease-in-out; /* Smooth fade-in effect */
+    z-index: 10; /* Ensure tooltip appears above other elements */
+}
+
+.pad:hover::after {
+    opacity: 1; /* Show tooltip on hover */
+}
+
+
+
+
 /* Pink Checkbox Styling */
 input[type="checkbox"] {
     accent-color: #f5b0c4; /* Pink color */
     width: 16px;
     height: 16px;
     cursor: pointer; /* Add pointer cursor for better UX */
+}
+
+
+/* Media Query for Screen Size Range (390px to 1000px) */
+@media (min-width: 390px) and (max-width: 1000px) {
+    .dj-mixer {
+        grid-template-columns: 1fr; /* Single-column layout */
+        gap: 15px;
+        padding: 10px;
+    }
+
+    .logo {
+        font-size: 36px; /* Adjust logo size */
+    }
+
+    .crossfader input {
+        width: 90%; /* Expand crossfader slider */
+    }
+
+    .deck {
+        padding: 15px;
+        margin: 10px 0;
+    }
+
+    .jog-container {
+        width: 180px; /* Smaller jog wheel */
+        height: 180px;
+    }
+
+    .pad {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+    }
 }
 
