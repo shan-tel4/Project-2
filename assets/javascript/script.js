@@ -25,7 +25,6 @@ const wavesurferRight = WaveSurfer.create({
     responsive: true,
 });
 
-
 // Function to Setup Controls for a Deck
 function setupDeckControls(deckName, wavesurferInstance) {
     const prefix = deckName === 'left' ? 'left' : 'right';
@@ -144,3 +143,24 @@ setupSpeedControl('left', wavesurferLeft);
 setupSpeedControl('right', wavesurferRight);
 setupDeckControls('left', wavesurferLeft);
 setupDeckControls('right', wavesurferRight);
+
+// Initialize pad sounds
+function initializePadSounds() {
+    const pads = document.querySelectorAll('.pad');
+
+    pads.forEach(pad => {
+        pad.addEventListener('click', () => {
+            const soundSrc = pad.getAttribute('data-sound');
+            if (soundSrc) {
+                const audio = new Audio(soundSrc);
+                audio.play();
+                console.log(`Playing sound: ${soundSrc}`);
+            } else {
+                console.warn('No sound file associated with this button.');
+            }
+        });
+    });
+}
+
+// Initialize sound functionality
+initializePadSounds();
