@@ -6,6 +6,7 @@
     <title>Shay Mixer 5000</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
 </head>
 <body>
     <div class="dj-mixer">
@@ -14,7 +15,7 @@
 
         <div class="crossfader">
             <label for="crossfader-slider">CROSSFADER:</label>
-            <input type="range" id="crossfader-slider" min="0" max="100" value="50" />
+            <input type="range" id="crossfader-slider" min="0" max="100" value="50"/>
         </div>
 
         <!-- Left Deck -->
@@ -22,7 +23,7 @@
             <div class="deck-label">Deck A</div>
             <div class="audio-upload">
                 <label for="audio-uploader-left">Upload Audio:</label>
-                <input type="file" id="audio-uploader-left" accept="audio/*" />
+                <input type="file" id="audio-uploader-left" accept="audio/*"/>
             </div>
             <!-- Waveform -->
             <div class="waveform" id="waveform-left"></div>
@@ -40,10 +41,10 @@
                 <button class="pad loop" data-tooltip="Loop"><i class="fas fa-redo"></i></button>
             </div>
             <div class="button-group">
-                <button class="pad drum" data-tooltip="Drum Sound"><i class="fas fa-drum"></i></button>
-                <button class="pad scratch" data-tooltip="Scratch Effect"><i class="fas fa-compact-disc"></i></button>
-                <button class="pad horn" data-tooltip="Horn Sound"><i class="fa-solid fa-bullhorn"></i></button>
-                <button class="pad clap" data-tooltip="Clap Sound"><i class="fa-solid fa-hands-clapping"></i></button>
+                <button class="pad drum" data-sound="assets/audio/ES_Drum Kick 05 - Epidemic Sound.mp3" data-tooltip="Drum Sound"><i class="fas fa-drum"></i></button>
+                <button class="pad scratch" data-sound="assets/audio/scratch-87658.mp3" data-tooltip="Scratch Effect"><i class="fas fa-compact-disc"></i></button>
+                <button class="pad horn" data-sound="assets/audio/dj-airhorn-1012199-PREVIEW.mp3" data-tooltip="Horn Sound"><i class="fa-solid fa-bullhorn"></i></button>
+                <button class="pad clap" data-sound="assets/audio/clap-10-36723.mp3" data-tooltip="Clap Sound"><i class="fa-solid fa-hands-clapping"></i></button>
             </div>
             </div>
 
@@ -52,7 +53,7 @@
                 <label>Speed: <span id="rate-left">1.00</span>x</label>
                 <input type="range" id="speed-slider-left" min="0" max="7" step="1" value="3" />
                 <label>
-                    <input type="checkbox" id="preserve-pitch-left" checked />
+                    <input type="checkbox" id="preserve-pitch-left" checked/>
                     Preserve pitch
                 </label>
             </div>
@@ -63,7 +64,7 @@
             <div class="deck-label">Deck B</div>
             <div class="audio-upload">
                 <label for="audio-uploader-right">Upload Audio:</label>
-                <input type="file" id="audio-uploader-right" accept="audio/*" />
+                <input type="file" id="audio-uploader-right" accept="audio/*"/>
             </div>
             <!-- Waveform -->
             <div class="waveform" id="waveform-right"></div>
@@ -77,24 +78,22 @@
             <!-- Buttons -->
             <div class="pad-row">
                 <div class="button-group">
-                    <button class="pad cue" data-tooltip="Cue"><i class="fas fa-step-backward"></i></button>
-                    <button class="pad play" data-tooltip="Play"><i class="fas fa-play"></i></button>
-                    <button class="pad pause" data-tooltip="Pause"><i class="fas fa-pause"></i></button>
-                    <button class="pad loop" data-tooltip="Loop"><i class="fas fa-redo"></i></button>
+                    <button class="pad drum" data-sound="assets/audio/ES_Drum Kick 05 - Epidemic Sound.mp3" data-tooltip="Drum Sound"><i class="fas fa-drum"></i></button>
+                <button class="pad scratch" data-sound="assets/audio/scratch-87658.mp3" data-tooltip="Scratch Effect"><i class="fas fa-compact-disc"></i></button>
+                <button class="pad horn" data-sound="assets/audio/dj-airhorn-1012199-PREVIEW.mp3" data-tooltip="Horn Sound"><i class="fa-solid fa-bullhorn"></i></button>
+                <button class="pad clap" data-sound="assets/audio/clap-10-36723.mp3" data-tooltip="Clap Sound"><i class="fa-solid fa-hands-clapping"></i></button>
+            </div>
                 </div>
                 <div class="button-group">
-                    <button class="pad drum" data-tooltip="Drum Sound"><i class="fas fa-drum"></i></button>
-                    <button class="pad scratch" data-tooltip="Scratch Effect"><i class="fas fa-compact-disc"></i></button>
-                    <button class="pad horn" data-tooltip="Horn Sound"><i class="fa-solid fa-bullhorn"></i></button>
-                    <button class="pad clap" data-tooltip="Clap Sound"><i class="fa-solid fa-hands-clapping"></i></button>
+                    
                 </div>
                 
             <!-- Speed Control -->
             <div class="speed-control">
                 <label>Speed: <span id="rate-right">1.00</span>x</label>
-                <input type="range" id="speed-slider-right" min="0" max="7" step="1" value="3" />
+                <input type="range" id="speed-slider-right" min="0" max="7" step="1" value="3"/>
                 <label>
-                    <input type="checkbox" id="preserve-pitch-right" checked />
+                    <input type="checkbox" id="preserve-pitch-right" checked/>
                     Preserve pitch
                 </label>
             </div>
