@@ -108,6 +108,8 @@ To use the DJ Mixer application, start by selecting a track for "Deck A" and "De
 
 ### Functional Testing:
 
+Functional testing was used in the project to ensure that all features of the DJ controller application operate as intended. This involved verifying the functionality of buttons such as play, pause, and loop, as well as the responsiveness of sliders like the crossfader and speed control. Each interactive element was tested for proper audio feedback and smooth transitions between tracks. Testing also confirmed that only audio files can be uploaded to the application, preventing errors caused by unsupported file types. Additionally, testing ensured that the application performed consistently across different devices and browsers, providing users with a seamless and reliable experience.
+
 
 ### Validator Testing:
 
