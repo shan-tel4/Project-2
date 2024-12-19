@@ -26,10 +26,23 @@ The Shay Mixer 5000 is a simple web-based DJ mixing interface designed to emulat
 ## Project Description
 
 
+User Interaction:
 
-### Objectives:
+Users can upload audio files directly into each deck, control playback using the interactive jog wheels and buttons, adjust playback speed and pitch, and blend tracks using the crossfader. The design focuses on providing an authentic DJ experience within a web browser, making it accessible for both amateur and professional DJs
 
-- 
+## The Shay Mixer 5000 is designed for:
+
+- **Aspiring DJs**: Individuals new to DJing who seek an accessible platform to practice and develop their mixing skills without the need for expensive hardware.
+
+- **Hobbyist DJs**: Enthusiasts who enjoy mixing music recreationally and desire a user-friendly interface to create and share mixes.
+
+- **Professional DJs**: Experienced DJs looking for a convenient tool to prepare sets, experiment with track combinations, and refine their mixes.
+
+- Music Educators and Students**: Educators teaching DJing techniques and students learning about music mixing and audio manipulation.
+
+- Event Organisers**: Individuals responsible for curating music for events who require a straightforward solution for creating seamless playlists and mixes.
+
+By catering to this diverse audience, the Shay Mixer 5000 aims to provide a versatile and intuitive platform for various users interested in DJing and music mixing.
 
 ---
 
@@ -38,7 +51,7 @@ The Shay Mixer 5000 is a simple web-based DJ mixing interface designed to emulat
 
 The Shay Mixer 5000's design emulates the aesthetic of professional DJ equipment, featuring a dark-themed interface with a deep blue background (#4a4d63) that minimises eye strain and enhances focus. The mixer panels are set against a slightly darker shade (#2a2d43), creating a subtle contrast that defines different sections without overwhelming the user. Accents in a soft pink hue (#f5b0c4) highlight key elements such as the logo and deck labels, drawing attention to important features. This color scheme not only reflects the vibrant atmosphere of DJ environments but also ensures clarity and usability, aligning with the visual language commonly found in DJ interfaces. 
 
-![Color palette]()
+![Color palette](https://github.com/shan-tel4/Project-2/blob/main/assets/images/project%202%20colour%20palette.png?raw=true)
 
 Typography: "Poppins" 
 
@@ -119,7 +132,6 @@ The wireframe was designed on ![Visily](https://www.visily.ai/) depicts a modern
 - None identified at this time.
 
 ---
-
 
 
 ## Acknowledgments
