@@ -151,4 +151,4 @@ To use the DJ Mixer application, start by selecting a track for "Deck A" and "De
 - **Pixabay:** Provided drum, scratch, clap, and horn audio files.  
 - **Prettier:** Utilized for code alignment and formatting.  
 - **Colors:** Used for generating the color theme palette for the website.  
-- **W3 Schools:** Referenced for JavaScript code snippets and examples.  
+- **W3 Schools:** Used for script code link in HTML.  
