@@ -121,11 +121,11 @@ To use the DJ Mixer application, start by selecting a track for "Deck A" and "De
 
 ![html validator]()
 
-![css validator]()
+![css validator](https://github.com/shan-tel4/Project-2/blob/main/assets/images/css%20validator.png?raw=true)
 
 ![JavaScript Validator](https://github.com/shan-tel4/Project-2/blob/main/assets/images/js%20validator.png?raw=true)
 
-![Responsive Design]()
+![Responsive Design](https://github.com/shan-tel4/Project-2/blob/main/assets/images/responsive%20image.png?raw=true)
 
 
 ### Known Issues:
