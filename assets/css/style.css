@@ -234,7 +234,7 @@ input[type="checkbox"] {
 }
 
 
-@media (min-width: 100px) and (max-width: 390px) {
+@media (min-width: 100px) and (max-width: 1000px) {
     body {
         display: flex;
         flex-direction: column;
