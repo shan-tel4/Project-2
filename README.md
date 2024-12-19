@@ -100,7 +100,7 @@ The wireframe was designed on ![Visily](https://www.visily.ai/) depicts a modern
 
 ## How to Use
 
-
+To use the DJ Mixer application, start by selecting a track for "Deck A" and "Deck B." Use the play and pause buttons on each deck to control playback. Adjust the sliders for volume and effects to customise the audio experience. The crossfader in the center allows you to seamlessly transition between the two decks by sliding it left or right. You can also use the speed slider and pad buttons which are clearly labelled to fine-tune the tempo or add effects. Experiment with the various buttons and controls to create dynamic mixes and enjoy a hands-on DJ experience right in your browser.
 
 ---
 
@@ -132,6 +132,8 @@ The wireframe was designed on ![Visily](https://www.visily.ai/) depicts a modern
 - None identified at this time.
 
 ---
+
+## Features to add in the future 
 
 
 ## Acknowledgments
