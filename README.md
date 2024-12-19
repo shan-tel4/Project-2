@@ -13,13 +13,13 @@ The Shay Mixer 5000 is a simple web-based DJ mixing interface designed to emulat
 ## Table of Contents
 
 1. [Project Description](#project-description)
-2. [Features](#features)
+2. [Features](#key-features)
 3. [Technologies Used](#technologies-used)
 4. [How to Use](#how-to-use)
 5. [Testing](#testing)
 6. [Contributions](#contributions)
 7. [Acknowledgments](#acknowledgments)
-8. [License](#license)
+
 
 ---
 
