@@ -53,7 +53,7 @@ The Shay Mixer 5000's design emulates the aesthetic of professional DJ equipment
 
 ![Color palette](https://github.com/shan-tel4/Project-2/blob/main/assets/images/project%202%20colour%20palette.png?raw=true)
 
-Typography: "Poppins" 
+Typography The "Poppins" font was chosen for its clean and modern design, ensuring easy readability.
 
 ## Wireframes
 
