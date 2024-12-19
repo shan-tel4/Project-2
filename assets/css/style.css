@@ -154,7 +154,7 @@ body {
 /* Tooltip Styling */
 .pad {
     position: relative;
-} */
+} 
 
 .pad::after {
     content: attr(data-tooltip);
