@@ -94,7 +94,7 @@ The wireframe was designed on ![Visily](https://www.visily.ai/) depicts a modern
 
 - **HTML5**: Used for the structure and content of the application.  
 - **CSS3**: Used for the visual styling and layout.  
-- **JavaScript**: 
+- **JavaScript**: Used for interactivity 
 
 ---
 
@@ -113,13 +113,13 @@ To use the DJ Mixer application, start by selecting a track for "Deck A" and "De
 
 - **HTML**: Passed the W3C Nu HTML Checker with no issues.  
 - **CSS**: Passed the W3C CSS Validator without errors.
-- **JavaScript Validation passed on 
+- **JavaScript**: Passed the JS validation with no issue. 
 - **Lighthouse**: Scored 97 on Lighthouse for performance and accessibility.
 - **Responsive Design**: Am I Responsive? was use to test project responsivness on devices with various screen sizes
 
 ![Lighthouse Report](https://github.com/shan-tel4/Project-2/blob/main/assets/images/Lighthouse%20score.png?raw=true)
 
-![html validator]()
+![html validator](https://github.com/shan-tel4/Project-2/blob/main/assets/images/html%20validator.png?raw=true)
 
 ![css validator](https://github.com/shan-tel4/Project-2/blob/main/assets/images/css%20validator.png?raw=true)
 
