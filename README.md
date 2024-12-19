@@ -115,7 +115,7 @@ To use the DJ Mixer application, start by selecting a track for "Deck A" and "De
 - **CSS**: Passed the W3C CSS Validator without errors.
 - **JavaScript**: Passed the JS validation with no issue. 
 - **Lighthouse**: Scored 97 on Lighthouse for performance and accessibility.
-- **Responsive Design**: Am I Responsive? was use to test project responsivness on devices with various screen sizes
+- **Responsive Design**: Am I Responsive? was use to test project responsivness on devices with various screen sizes.
 
 ![Lighthouse Report](https://github.com/shan-tel4/Project-2/blob/main/assets/images/Lighthouse%20score.png?raw=true) 
 
