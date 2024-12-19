@@ -45,10 +45,23 @@ Mobile-first wireframes were created to ensure a responsive design with . They s
 
 ---
 
-## Features
+## Key Features
 
-- **Persistent Data**: The tasks are stored in the browser's localStorage so they persist even when the page is refreshed.  
-- **Responsive Design**: The application is fully responsive and works well on both desktop and mobile devices.
+- **Dual Decks**: Two separate decks labeled "Deck A" and "Deck B" enable users to upload and manage individual audio tracks, facilitating seamless transitions and mixing.
+
+
+- **Interactive Jog Wheels**: Each deck features a responsive jog wheel with a spinning marker, mimicking the tactile experience of physical DJ equipment. The jog wheels are designed with vinyl-like grooves and a central label to enhance realism.
+
+
+- **Playback Controls**: Users have access to essential playback functions, including play, pause, loop, and sync, allowing for dynamic control over each track.
+
+
+
+- **Speed and Pitch Adjustment**: Each deck includes a speed control slider with a range of playback rates, accompanied by a "Preserve Pitch" option to maintain audio fidelity during tempo changes.
+
+
+-**Crossfader**: A central crossfader enables smooth blending between Deck A and Deck B, providing intuitive control over the audio output.
+
 
 ![Responsive Design]()
 
