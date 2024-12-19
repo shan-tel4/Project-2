@@ -234,34 +234,110 @@ input[type="checkbox"] {
 }
 
 
-@media (min-width: 390px) and (max-width: 1000px) {
-    .dj-mixer {
-        grid-template-columns: 1fr; /* Change to single-column layout */
-        gap: 15px;
+@media (min-width: 100px) and (max-width: 390px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
         padding: 10px;
+        background-color: #4a4d63;
+    }
+
+    .dj-mixer {
+        display: flex;
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center; /* Center the content */
+        width: 100%; /* Full screen width */
+        gap: 15px; /* More consistent gap between elements */
+        padding: 10px; /* Increase padding for breathing space */
+        border-radius: 10px; /* Slightly reduce the border-radius */
     }
 
     .logo {
-        font-size: 36px; /* Reduce logo size */
+        font-size: 24px; /* Slightly smaller but still prominent */
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .crossfader {
+        width: 100%;
+        text-align: center;
+        font-size: 14px; /* Legible font size */
+        margin-bottom: 10px; /* Add spacing below */
     }
 
     .crossfader input {
-        width: 90%; /* Expand crossfader slider */
+        width: 80%; /* Center and limit width */
     }
 
     .deck {
-        padding: 15px;
-        margin: 10px 0;
+        width: 90%; /* Constrain the width slightly */
+        padding: 10px; /* Add some padding */
+        border-radius: 10px; /* Keep smooth edges */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Enhance the visual depth */
+    }
+
+    .deck-label {
+        font-size: 16px; /* Better font size for visibility */
+        margin-bottom: 10px;
+        color: #f5b0c4; /* Pink text for emphasis */
+    }
+
+    .audio-upload {
+        margin-bottom: 15px; /* Add space below */
+        text-align: left; /* Align for better readability */
+        font-size: 12px; /* Adjust font size */
     }
 
     .jog-container {
-        width: 180px; /* Smaller jog wheel */
-        height: 180px;
+        width: 120px; /* Maintain a reasonable size */
+        height: 120px;
+        margin: 10px auto; /* Add margin for spacing */
+    }
+
+    .pad-row {
+        display: flex;
+        flex-wrap: wrap; /* Allow wrapping for buttons */
+        justify-content: center; /* Center the buttons */
+        gap: 5px; /* Add space between buttons */
+        margin-top: 10px; /* Add spacing above */
     }
 
     .pad {
-        width: 40px;
+        width: 40px; /* Maintain usability size */
         height: 40px;
-        font-size: 14px;
+        margin: 5px;
+        font-size: 12px; /* Readable font size */
+        border-radius: 5px; /* Keep smooth corners */
+    }
+
+    .pad:hover {
+        background: #f5b0c4; /* Enhance hover effect */
+        color: #000; /* Contrast on hover */
+    }
+
+    .speed-control {
+        font-size: 12px; /* Adjust for readability */
+        text-align: center; /* Center-align the speed controls */
+        margin-top: 10px; /* Add spacing above */
+    }
+
+    input[type="range"] {
+        width: 90%; /* Fit neatly within the container */
+    }
+
+    input[type="checkbox"] {
+        width: 14px; /* Adjust size for usability */
+        height: 14px;
+    }
+
+    .speed-control label {
+        display: block; /* Stack the text for better layout */
+        margin-top: 5px; /* Add spacing between elements */
+    }
+
+    #crossfader-slider {
+        margin-top: 10px; /* Add space above the slider */
     }
 }
