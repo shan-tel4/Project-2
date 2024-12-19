@@ -50,7 +50,7 @@ Mobile-first wireframes were created to ensure a responsive design with . They s
 - **Persistent Data**: The tasks are stored in the browser's localStorage so they persist even when the page is refreshed.  
 - **Responsive Design**: The application is fully responsive and works well on both desktop and mobile devices.
 
-![Responsive Design](https://github.com/shan-tel4/to-do-list/blob/main/assets/images/responsive%20screenshot.png?raw=true)
+![Responsive Design]()
 
 ---
 
