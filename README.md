@@ -136,6 +136,12 @@ To use the DJ Mixer application, start by selecting a track for "Deck A" and "De
 
 ## Features to add in the future 
 
+- **Customizable Sound Effects:** Allow users to upload and apply their own sound effects or loops for a more personalized experience.  
+- **Visualizer Integration:** Add a real-time audio visualizer that reacts dynamically to the music being played.  
+- **Playlist Support:** Enable users to create, save, and load playlists for seamless DJ sets.  
+- **Keyboard Shortcuts:** Incorporate keyboard shortcuts for commonly used actions, like play, pause, and crossfading.  
+- **Multi-Device Syncing:** Add functionality to sync the DJ controller across multiple devices for collaborative mixing sessions.  
+
 
 ## Acknowledgments
 
