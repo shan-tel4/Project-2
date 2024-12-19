@@ -17,7 +17,7 @@ body {
     align-items: center;
     min-height: 100vh;
 }
-
+/* 
 .dj-mixer {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -154,7 +154,7 @@ body {
 /* Tooltip Styling */
 .pad {
     position: relative;
-}
+} */
 
 .pad::after {
     content: attr(data-tooltip);
