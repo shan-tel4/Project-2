@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">   
 </head>
-
 <body>
     <div class="dj-mixer">
         <!-- Logo -->
@@ -34,24 +33,23 @@
                 </div>
             </div>
             <div class="pad-row">
-            <div class="button-group">
-                <button class="pad cue" data-tooltip="Cue"><i class="fas fa-step-backward"></i></button>
-                <button class="pad play" data-tooltip="Play"><i class="fas fa-play"></i></button>
-                <button class="pad pause" data-tooltip="Pause"><i class="fas fa-pause"></i></button>
-                <button class="pad loop" data-tooltip="Loop"><i class="fas fa-redo"></i></button>
-            </div>
-            <div class="button-group">
-                <button class="pad drum" data-sound="assets/audio/tr909-snare-drum-241413.mp3" data-tooltip="Drum Sound"><i class="fas fa-drum"></i></button>
-                <button class="pad scratch" data-sound="assets/audio/scratch-87658.mp3" data-tooltip="Scratch Effect"><i class="fas fa-compact-disc"></i></button>
-                <button class="pad horn" data-sound="assets/audio/dj-airhorn-1012199-PREVIEW.mp3" data-tooltip="Horn Sound"><i class="fa-solid fa-bullhorn"></i></button>
-                <button class="pad clap" data-sound="assets/audio/clap-10-36723.mp3" data-tooltip="Clap Sound"><i class="fa-solid fa-hands-clapping"></i></button>
-
-            </div>
+                <div class="button-group">
+                    <button class="pad cue" data-tooltip="Cue"><i class="fas fa-step-backward"></i></button>
+                    <button class="pad play" data-tooltip="Play"><i class="fas fa-play"></i></button>
+                    <button class="pad pause" data-tooltip="Pause"><i class="fas fa-pause"></i></button>
+                    <button class="pad loop" data-tooltip="Loop"><i class="fas fa-redo"></i></button>
+                </div>
+                <div class="button-group">
+                    <button class="pad drum" data-sound="assets/audio/tr909-snare-drum-241413.mp3" data-tooltip="Drum Sound"><i class="fas fa-drum"></i></button>
+                    <button class="pad scratch" data-sound="assets/audio/scratch-87658.mp3" data-tooltip="Scratch Effect"><i class="fas fa-compact-disc"></i></button>
+                    <button class="pad horn" data-sound="assets/audio/dj-airhorn-1012199-PREVIEW.mp3" data-tooltip="Horn Sound"><i class="fa-solid fa-bullhorn"></i></button>
+                    <button class="pad clap" data-sound="assets/audio/clap-10-36723.mp3" data-tooltip="Clap Sound"><i class="fa-solid fa-hands-clapping"></i></button>
+                </div>
             </div>
 
             <!-- Speed Control -->
             <div class="speed-control">
-                <label>Speed: <span id="rate-left">1.00</span>x</label>
+                <label for="speed-slider-left">Speed: <span id="rate-left">1.00</span>x</label>
                 <input type="range" id="speed-slider-left" min="0" max="7" step="1" value="3" />
                 <label>
                     <input type="checkbox" id="preserve-pitch-left" checked/>
@@ -89,12 +87,11 @@
                     <button class="pad scratch" data-sound="assets/audio/scratch-87658.mp3" data-tooltip="Scratch Effect"><i class="fas fa-compact-disc"></i></button>
                     <button class="pad horn" data-sound="assets/audio/dj-airhorn-1012199-PREVIEW.mp3" data-tooltip="Horn Sound"><i class="fa-solid fa-bullhorn"></i></button>
                     <button class="pad clap" data-sound="assets/audio/clap-10-36723.mp3" data-tooltip="Clap Sound"><i class="fa-solid fa-hands-clapping"></i></button>
-
                 </div>
-                </div>
+            </div>
             <!-- Speed Control -->
             <div class="speed-control">
-                <label>Speed: <span id="rate-right">1.00</span>x</label>
+                <label for="speed-slider-right">Speed: <span id="rate-right">1.00</span>x</label>
                 <input type="range" id="speed-slider-right" min="0" max="7" step="1" value="3"/>
                 <label>
                     <input type="checkbox" id="preserve-pitch-right" checked/>

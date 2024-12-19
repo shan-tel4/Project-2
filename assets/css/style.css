@@ -234,16 +234,15 @@ input[type="checkbox"] {
 }
 
 
-/* Media Query for Screen Size Range (390px to 1000px) */
 @media (min-width: 390px) and (max-width: 1000px) {
     .dj-mixer {
-        grid-template-columns: 1fr; /* Single-column layout */
+        grid-template-columns: 1fr; /* Change to single-column layout */
         gap: 15px;
         padding: 10px;
     }
 
     .logo {
-        font-size: 36px; /* Adjust logo size */
+        font-size: 36px; /* Reduce logo size */
     }
 
     .crossfader input {
@@ -266,4 +265,3 @@ input[type="checkbox"] {
         font-size: 14px;
     }
 }
-
