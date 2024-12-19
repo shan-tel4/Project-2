@@ -113,6 +113,7 @@ To use the DJ Mixer application, start by selecting a track for "Deck A" and "De
 
 - **HTML**: Passed the W3C Nu HTML Checker with no issues.  
 - **CSS**: Passed the W3C CSS Validator without errors.
+- **JavaScript Validation passed on 
 - **Lighthouse**: Scored 97 on Lighthouse for performance and accessibility.
 - **Responsive Design**: Am I Responsive? was use to test project responsivness on devices with various screen sizes
 
@@ -122,7 +123,7 @@ To use the DJ Mixer application, start by selecting a track for "Deck A" and "De
 
 ![css validator]()
 
-![JavaScript Validator]()
+![JavaScript Validator](https://github.com/shan-tel4/Project-2/blob/main/assets/images/js%20validator.png?raw=true)
 
 ![Responsive Design]()
 
