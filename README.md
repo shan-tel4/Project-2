@@ -1,10 +1,12 @@
 # Project-2 Shay Mixer 5000 HTML CSS JavaScript
 
-[Visit deployed website here](https://shan-tel4.github.io/Project-2/)
+
 
 The Shay Mixer 5000 is a simple web-based DJ mixing interface designed to emulate traditional DJ equipment within a browser environment. It allows users to upload audio tracks, control playback, and simulate real-time mixing using interactive components.
 
 ![Shay Mixer 5000](https://github.com/shan-tel4/Project-2/blob/main/assets/images/shay%20mixer%205000.png?raw=true)
+
+[Visit deployed website here](https://shan-tel4.github.io/Project-2/)
 
 ---
 
@@ -34,6 +36,7 @@ The Shay Mixer 5000 is a simple web-based DJ mixing interface designed to emulat
 
 ## Colour Palette:
 
+The Shay Mixer 5000's design emulates the aesthetic of professional DJ equipment, featuring a dark-themed interface with a deep blue background (#4a4d63) that minimises eye strain and enhances focus. The mixer panels are set against a slightly darker shade (#2a2d43), creating a subtle contrast that defines different sections without overwhelming the user. Accents in a soft pink hue (#f5b0c4) highlight key elements such as the logo and deck labels, drawing attention to important features. This color scheme not only reflects the vibrant atmosphere of DJ environments but also ensures clarity and usability, aligning with the visual language commonly found in DJ interfaces. 
 
 ![Color palette]()
 
@@ -62,10 +65,15 @@ The wireframe was designed on ![Visily](https://www.visily.ai/) depicts a modern
 - **Speed and Pitch Adjustment**: Each deck includes a speed control slider with a range of playback rates, accompanied by a "Preserve Pitch" option to maintain audio fidelity during tempo changes.
 
 
--**Crossfader**: A central crossfader enables smooth blending between Deck A and Deck B, providing intuitive control over the audio output.
+- **Crossfader**: A central crossfader enables smooth blending between Deck A and Deck B, providing intuitive control over the audio output.
 
 
-![Responsive Design]()
+## Technical Implementation:
+
+- **Frontend**: Developed using HTML, CSS and JS, the interface employs a grid layout to organise components, ensuring a responsive and user-friendly design.
+
+
+- **Audio Handling**: The application utilises the Web Audio API, with integration of the WaveSurfer.js library for audio visualisation and manipulation, offering precise control over audio playback and effects.
 
 ---
 
@@ -73,7 +81,7 @@ The wireframe was designed on ![Visily](https://www.visily.ai/) depicts a modern
 
 - **HTML5**: Used for the structure and content of the application.  
 - **CSS3**: Used for the visual styling and layout.  
-- **JavaScript**:  
+- **JavaScript**: 
 
 ---
 
@@ -88,18 +96,22 @@ The wireframe was designed on ![Visily](https://www.visily.ai/) depicts a modern
 ### Functional Testing:
 
 
-
 ### Validator Testing:
 
 - **HTML**: Passed the W3C Nu HTML Checker with no issues.  
 - **CSS**: Passed the W3C CSS Validator without errors.
 - **Lighthouse**: Scored 97 on Lighthouse for performance and accessibility.
+- **Responsive Design**: Am I Responsive? was use to test project responsivness on devices with various screen sizes
 
 ![Lighthouse Report]()
 
 ![html validator]()
 
 ![css validator]()
+
+![JavaScript Validator]()
+
+![Responsive Design]()
 
 
 ### Known Issues:
@@ -112,4 +124,6 @@ The wireframe was designed on ![Visily](https://www.visily.ai/) depicts a modern
 
 ## Acknowledgments
 
+- **
+- **
 - **
