@@ -94,7 +94,7 @@ The wireframe was designed on [Visily](https://www.visily.ai/) depicts a modern 
 
 - **HTML5**: Used for the structure and content of the application.  
 - **CSS3**: Used for the visual styling and layout.  
-- **JavaScript**: Used for interactivity 
+- **JavaScript**: Used for interactivity.
 
 ---
 
