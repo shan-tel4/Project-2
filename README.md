@@ -57,7 +57,7 @@ Typography The "Poppins" font was chosen for its clean and modern design, ensuri
 
 ## Wireframes
 
-The wireframe was designed on [Visily](https://www.visily.ai/) depicts a modern and minimalist DJ controller interface designed for an interactive web project, as seen on the linked project webpage. It features two decks labeled "Deck A" and "Deck B," each equipped with rotary controls and sliders for precise audio manipulation. At the center, a crossfader allows seamless transitions between decks, while additional buttons and knobs provide access to further functionalities, such as effects or equalizer controls. The design balances simplicity and usability, creating a clean aesthetic that is visually engaging while emphasizing intuitive operation for users.
+The wireframe was designed on [Visily](https://www.visily.ai/) depicts a modern and minimalist DJ controller interface designed for an interactive web project, as seen on the linked project webpage. It features two decks labeled "Deck A" and "Deck B," each equipped with rotary controls and sliders for precise audio manipulation. At the center, a crossfader allows seamless transitions between decks, while additional buttons provide access to further functionalities, such as effects. The design balances simplicity and usability, creating a clean aesthetic that is visually engaging while emphasising intuitive operation for users.
 
 ![wireframe](https://github.com/shan-tel4/Project-2/blob/main/assets/images/project%202%20wireframe.png?raw=true)
 
