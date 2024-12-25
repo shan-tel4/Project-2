@@ -1,6 +1,6 @@
 # Project-2 Shay Mixer 5000 HTML CSS JavaScript
 
-
+## Project Description
 
 The Shay Mixer 5000 is a simple web-based DJ mixing interface designed to emulate traditional DJ equipment within a browser environment. It allows users to upload audio tracks, control playback, and simulate real-time mixing using interactive components.
 
@@ -22,8 +22,6 @@ The Shay Mixer 5000 is a simple web-based DJ mixing interface designed to emulat
 
 
 ---
-
-## Project Description
 
 
 User Interaction:
