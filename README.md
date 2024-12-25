@@ -36,9 +36,9 @@ Users can upload audio files directly into each deck, control playback using the
 
 - **Professional DJs**: Experienced DJs looking for a convenient tool to prepare sets, experiment with track combinations, and refine their mixes.
 
-- Music Educators and Students**: Educators teaching DJing techniques and students learning about music mixing and audio manipulation.
+- **Music Educators and Students**: Educators teaching DJing techniques and students learning about music mixing and audio manipulation.
 
-- Event Organisers**: Individuals responsible for curating music for events who require a straightforward solution for creating seamless playlists and mixes.
+- **Event Organisers**: Individuals responsible for curating music for events who require a straightforward solution for creating seamless playlists and mixes.
 
 By catering to this diverse audience, the Shay Mixer 5000 aims to provide a versatile and intuitive platform for various users interested in DJing and music mixing.
 
