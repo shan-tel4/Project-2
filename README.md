@@ -145,7 +145,7 @@ Functional testing was used in the project to ensure that all features of the DJ
 
 ### Acknowledgments  
 
-(CDNJS CSS Library)[https://cdnjs.com/libraries/font-awesome] Used for code to create pad buttons such as cue, play, pause, loop, drum, scratch, clap, crossfader, and the speed slider.  
+[CDNJS CSS Library](https://cdnjs.com/libraries/font-awesome0) Used for code to create pad buttons such as cue, play, pause, loop, drum, scratch, clap, crossfader, and the speed slider.  
 [Wavesurfer JS Library](https://wavesurfer.xyz/) Used for audio event listener functionality and the speed slider.  
 [Stack Overflow](https://stackoverflow.com/) Assisted in creating the loop logic.  
 [Pixabay](https://pixabay.com/) Provided drum, scratch, clap, and horn audio files.  
