@@ -152,3 +152,5 @@ Functional testing was used in the project to ensure that all features of the DJ
 [Prettier](https://prettier.io/) Utilized for code alignment and formatting.  
 [Colors](https://coolors.co/) Used for generating the color theme palette for the website.  
 [W3 Schools](https://www.w3schools.com/) Used for script code link in HTML.  
+
+[Back to the top](#project-2-shay-mixer-5000-html-css-javascript)
