@@ -45,7 +45,7 @@ By catering to this diverse audience, the Shay Mixer 5000 aims to provide a vers
 
 ---
 
-## Design:
+## Design
 
 ## Colour Palette:
 
