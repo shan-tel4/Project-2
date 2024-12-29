@@ -25,7 +25,7 @@ The Shay Mixer 5000 is a simple web-based DJ mixing interface designed to emulat
 ---
 
 
-User Interaction:
+## User Interaction:
 
 Users can upload audio files directly into each deck, control playback using the interactive jog wheels and buttons, adjust playback speed and pitch, and blend tracks using the crossfader. The design focuses on providing an authentic DJ experience within a web browser, making it accessible for both amateur and professional DJs
 
