@@ -13,12 +13,13 @@ The Shay Mixer 5000 is a simple web-based DJ mixing interface designed to emulat
 ## Table of Contents
 
 1. [Project Description](#project-description)
-2. [Features](#key-features)
-3. [Technologies Used](#technologies-used)
-4. [How to Use](#how-to-use)
-5. [Testing](#testing)
-6. [Contributions](#contributions)
-7. [Acknowledgments](#acknowledgments)
+2. [Design](#design)
+3. [Features](#key-features)
+4. [Technologies Used](#technologies-used)
+5. [How to Use](#how-to-use)
+6. [Testing](#testing)
+7. [Contributions](#contributions)
+8. [Acknowledgments](#acknowledgments)
 
 
 ---
@@ -44,6 +45,7 @@ By catering to this diverse audience, the Shay Mixer 5000 aims to provide a vers
 
 ---
 
+## Design:
 
 ## Colour Palette:
 
@@ -136,7 +138,7 @@ Functional testing was used in the project to ensure that all features of the DJ
 
 ## Features to add in the future 
 
-- **Customizable Sound Effects:** Allow users to upload and apply their own sound effects or loops for a more personalized experience.  
+- **Customisable Sound Effects:** Allow users to upload and apply their own sound effects or loops for a more personalized experience.  
 - **Visualizer Integration:** Add a real-time audio visualizer that reacts dynamically to the music being played.  
 - **Playlist Support:** Enable users to create, save, and load playlists for seamless DJ sets.  
 - **Keyboard Shortcuts:** Incorporate keyboard shortcuts for commonly used actions, like play, pause, and crossfading.  
