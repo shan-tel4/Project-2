@@ -20,6 +20,71 @@ body {
     min-height: 100vh;
 }
 
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    padding: 15px 6%;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #343654; /* Dark background */
+    color: #fff;
+    position: fixed; /* Fixed at the top */
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+}
+
+/* Logo Styling */
+.navbar .logo {
+    font-size: 2em;
+    color: #f5b0c4; /* Pink text color for the logo */
+    font-family: 'Pacifico', cursive; /* Cursive font for the logo */
+    text-decoration: none;
+}
+
+/* Navbar Links Styling */
+.nav-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links li {
+    display: inline-block;
+}
+
+.nav-links li a {
+    color: #fff; /* White text for links */
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #f5b0c4; /* Pink text on hover */
+}
+
+.nav-links li a::after {
+    content: '';
+    width: 0;
+    height: 3px;
+    background: #f5b0c4; /* Pink underline effect */
+    display: block;
+    margin: auto;
+    transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+    width: 100%; /* Full underline on hover */
+}
+
+
 .dj-mixer {
     display: grid;
     grid-template-columns: 1fr 1fr;
