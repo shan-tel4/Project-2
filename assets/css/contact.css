@@ -1,10 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap');
-
-
 body {
     font-family: 'Poppins', sans-serif;
-    background: #4a4d63;
+    background: #2a2d43;
     color: #fff;
     margin: 0;
     padding: 0;
@@ -106,15 +102,15 @@ body {
     color: #000;
 }
 
+/* Footer */
 .footer {
     text-align: center;
-    padding: 5px 0; /* Reduced padding */
+    padding: 20px;
     background: #1f2235;
     color: #f5b0c4;
-    width: 100%;
-    font-size: 14px;
-    position: relative;
+    position: fixed;
     bottom: 0;
+    width: 100%;
 }
 
 .social-links {
@@ -126,7 +122,7 @@ body {
 
 .social-icon {
     color: #f5b0c4;
-    font-size: 18px;
+    font-size: 24px;
     transition: color 0.3s ease-in-out;
 }
 
