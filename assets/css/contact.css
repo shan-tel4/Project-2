@@ -106,15 +106,15 @@ body {
     color: #000;
 }
 
-/* Footer */
 .footer {
     text-align: center;
-    padding: 10px 0;
+    padding: 5px 0; /* Reduced padding */
     background: #1f2235;
     color: #f5b0c4;
-    position: fixed;
-    bottom: 0;
     width: 100%;
+    font-size: 14px;
+    position: relative;
+    bottom: 0;
 }
 
 .social-links {
