@@ -1,6 +1,5 @@
 import WaveSurfer from 'https://cdn.jsdelivr.net/npm/wavesurfer.js@7/dist/wavesurfer.esm.js';
 
-alert('Hello, welcome to The Shay Mixer 5000!');
 
 // Speed options
 const speeds = [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2];
