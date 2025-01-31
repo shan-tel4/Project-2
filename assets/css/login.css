@@ -25,6 +25,7 @@ body {
     margin-top: 80px; /* Adjust spacing */
 }
 
+
 /* Navbar */
 .navbar {
     width: 100%;
@@ -33,7 +34,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 20px 50px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     position: fixed;
     top: 0;
     left: 0;
@@ -43,7 +44,7 @@ body {
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 25px;
 }
 
 .nav-links a {
@@ -51,10 +52,10 @@ body {
     color: #f5b0c4;
     font-weight: bold;
     font-size: 18px;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease-in-out;
 }
 
-.nav-links a:hover {
+.nav-links a:hover, .nav-links .active {
     color: #fff;
 }
 
