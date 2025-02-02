@@ -6,7 +6,7 @@ The Shay Mixer 5000 is a simple web-based DJ mixing interface designed to emulat
 
 ![Shay Mixer 5000](https://github.com/shan-tel4/Project-2/blob/main/assets/images/shay%20mixer%205000.png?raw=true)
 
-[Visit deployed website here](https://shan-tel4.github.io/Project-2/)
+[Visit deployed website here]()
 
 ---
 
