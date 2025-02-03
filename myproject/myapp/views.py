@@ -14,3 +14,9 @@ def contact_view(request):
 def signup_view(request):
     return render(request, 'signup.html')
 
+from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("Hello, Django!")
+
+
