@@ -61,11 +61,14 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'myproject.urls'
 
+import os
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
+        # Add custom directories where you may want to store templates outside of the app structure
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # Optional global 'templates' directory at the project root
+        'APP_DIRS': True,  # Enables Django to find templates in each app's 'templates/' folder
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -76,6 +79,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
