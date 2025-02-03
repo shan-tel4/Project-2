@@ -1,0 +1,278 @@
+[33mcommit fed69a9aa31473d5b44017ea3cfa43963c85adb2[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Mon Feb 3 16:44:43 2025 +0000
+
+    space added
+
+[33mcommit d13356310760ba088ceb2c92af16b35a085fe90b[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Mon Feb 3 15:49:53 2025 +0000
+
+    manage.py placed in myprojects
+
+[33mcommit be75e78f48361a4e1b614963615659feef659223[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Mon Feb 3 10:06:50 2025 +0000
+
+    html moved to template folder to help render
+
+[33mcommit c072f37915a797dd2dc82de7f72beb6176bb5976[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Mon Feb 3 09:51:18 2025 +0000
+
+    space added
+
+[33mcommit 1d8cd4649dc0b017155550acbeac29a2c5bff6cb[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Mon Feb 3 09:37:39 2025 +0000
+
+    register admin models
+
+[33mcommit 2d80a92359662c7fffc1966437ef889e46ee0b9d[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Mon Feb 3 09:15:06 2025 +0000
+
+    models classes added
+
+[33mcommit 76fdfd20ba8dca6f6a40db632dbc72258b4a0744[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Sun Feb 2 18:26:26 2025 +0000
+
+    Update README.md
+
+[33mcommit ffcec03496bf032a64a997d69d81fb0e27b1d051[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Sun Feb 2 12:05:47 2025 +0000
+
+    sign up page created
+
+[33mcommit 2c96fe8a22a82009d57da7f2abe896fb9aff1faf[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Fri Jan 31 12:11:51 2025 +0000
+
+    django installed
+
+[33mcommit 055fffa13d9193bd4a4c2b7d12f439fa24326f43[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Thu Jan 30 13:35:30 2025 +0000
+
+    signup html linked to signup project
+
+[33mcommit ab5c728d3f10163118aa78b08a2d4c4285b2d204[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Thu Jan 30 12:13:57 2025 +0000
+
+    create an app
+
+[33mcommit 97cd4e0dac45010ca006307e6f0b61161b955057[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Thu Jan 30 11:36:13 2025 +0000
+
+    servers added
+
+[33mcommit 08f39c24b67f01523e6eb203a01657d99744bcce[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Thu Jan 30 11:15:18 2025 +0000
+
+    user name set up
+
+[33mcommit 1c53168ce1287aa5fba963c18029d0cbffd7e20a[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Thu Jan 30 10:40:00 2025 +0000
+
+    django admin page created
+
+[33mcommit df11600670646fd8e0729c928f11d6f0ed4d90fd[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Wed Jan 29 15:54:38 2025 +0000
+
+    contact background changed
+
+[33mcommit 3d1161e0d4eb222b59cb9496c7a2613cb3801a27[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Wed Jan 29 15:12:37 2025 +0000
+
+    space added
+
+[33mcommit 3b3b927654ad03321dc4ceb87fed88a04b6724f0[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Wed Jan 29 10:46:15 2025 +0000
+
+    footer size on login page and contact page adjusted
+
+[33mcommit 92be9c70dacdebfe8095169ffd0069c91481d4d9[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Wed Jan 29 10:28:11 2025 +0000
+
+    footer icons changed
+
+[33mcommit 211beb987dc39a4902f10c752c69bfd20991f52b[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Wed Jan 29 10:14:18 2025 +0000
+
+    background colour on contact page changed
+
+[33mcommit 186e6229d55a69a6be7278d2c50dd70f9617b347[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Wed Jan 29 09:52:03 2025 +0000
+
+    contact html and css created
+
+[33mcommit 1fc496ecc7f5ab0cbb5a811d48ee0712d0c68d69[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Wed Jan 29 09:40:01 2025 +0000
+
+    Welcome alert removed from js
+
+[33mcommit b3d8a9f14b79ce2f58d57edbc121e02bf74618d4[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Wed Jan 29 09:38:57 2025 +0000
+
+    font for log in page created
+
+[33mcommit 6f340e17b34dc0911815dc5a1ed6c90144ba8dc5[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Wed Jan 29 09:34:01 2025 +0000
+
+    login page html and css added
+
+[33mcommit 8b11d24b0b190b69d95bebc8884e2c0f4969622d[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Wed Jan 29 09:17:49 2025 +0000
+
+    login page created
+
+[33mcommit e96bebe33845af2fc602cc1044575f580a219ac8[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Mon Jan 27 15:10:30 2025 +0000
+
+    code reverted
+
+[33mcommit 29469560cac87e45db9272390eb8807ec95b8aba[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Mon Jan 27 14:58:20 2025 +0000
+
+    nav bar created
+
+[33mcommit 74b8d149ae149f77beaeb8009b26b1bcb433392d[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Fri Jan 24 10:23:06 2025 +0000
+
+    space added
+
+[33mcommit 44fa9039c7822147addb636c39986b2c349842a6[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Fri Jan 24 09:57:00 2025 +0000
+
+    back end connected to front end
+
+[33mcommit 5a51bb190407a66004f4ff033aa2ad0c8be21052[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Thu Jan 23 16:25:13 2025 +0000
+
+    npm vunerabilties removed
+
+[33mcommit 59d4cb6995005a1e942168b92f1a0f23f6d8b7ea[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Thu Jan 23 16:12:04 2025 +0000
+
+    package.json file updated
+
+[33mcommit e64518a57855721d6537952f12ff5315ace92881[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Thu Jan 23 16:09:05 2025 +0000
+
+    mongo url added to .env file
+
+[33mcommit a4a61de2984e07c9319ed222e641ba6b983c0b9d[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Thu Jan 23 16:00:33 2025 +0000
+
+    Node.js backend installed
+
+[33mcommit c90ff523bca044c5bebcc1aa3477dc9f93c13207[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Thu Jan 23 15:55:21 2025 +0000
+
+    backend files and folders created
+
+[33mcommit 78501970d63209fb18f0953c882fea8627c120dc[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Thu Jan 23 12:14:45 2025 +0000
+
+    space added
+
+[33mcommit e39516c678f1d640702944a7c49807d945c1286b[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Wed Jan 8 15:03:04 2025 +0000
+
+    Update README.md
+
+[33mcommit 5a6faae12fc881f4a30388f7b9901b03c60b1d7f[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Mon Jan 6 11:25:24 2025 +0000
+
+    jog marker height and width adjusted in media query
+
+[33mcommit 657b358759476f4866e6aa1816f4acd7b32b4466[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Mon Jan 6 10:34:54 2025 +0000
+
+    fav icon added to html
+
+[33mcommit 68addeea679ac1114e99a93f01f94142556bfecd[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Sun Dec 29 14:02:04 2024 +0000
+
+    Update README.md
+
+[33mcommit 2770f7bd4ec25bd2dd80c9f10be641a7ae279f85[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Sun Dec 29 12:17:16 2024 +0000
+
+    Update README.md
+
+[33mcommit 30d5bafe67aee80c1d15e8c5f8c47ab530e36ffe[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Sun Dec 29 12:16:18 2024 +0000
+
+    Update README.md
+
+[33mcommit 48c9863802754c30291a701dc52ef89083036a0f[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Thu Dec 26 21:12:58 2024 +0000
+
+    Update README.md
+
+[33mcommit f0e9907d931e2c75cc1f8e1b279bd716b83821e4[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Thu Dec 26 21:11:14 2024 +0000
+
+    Update README.md
+
+[33mcommit 03eade6689f91292cd9096edecf9368e5ac9b8ec[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Thu Dec 26 21:10:14 2024 +0000
+
+    Update README.md
+
+[33mcommit fec74e6963ee499693626342d923b7e00b027732[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Thu Dec 26 21:07:53 2024 +0000
+
+    Update README.md
+
+[33mcommit 1c382f622f7475510417dfe93cadd33db3d1333c[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Wed Dec 25 20:46:59 2024 +0000
+
+    Update README.md
+
+[33mcommit 0848c6fd796d36366ece6f49ff8b84bdc11b549d[m
+Author: Shantel Shaw <shantel_shaw@hotmail.co.uk>
+Date:   Wed Dec 25 20:45:40 2024 +0000
+
+    Update README.md
+
+[33mcommit 601b4d187589bebbfebcca03e42b183b9984ea91[m
+Author: Sha
