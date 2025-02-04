@@ -5,12 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shay Mixer 5000</title>
     <link rel="stylesheet" href="assets/css/style.css">
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<link rel="icon" type="images/png"  href="assets/images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="images/png"  href="assets/images/favicon.png">
 </head>
 <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="login.html">Home</a></li>
+            <li><a href="session.html" class="active">Session</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="signup.html">Sign Up</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content: DJ Mixer -->
     <div class="dj-mixer">
-        <!-- Logo -->
         <div class="logo">Shay Mixer 5000</div>
 
         <div class="crossfader">
@@ -25,9 +35,7 @@
                 <label for="audio-uploader-left">Upload Audio:</label>
                 <input type="file" id="audio-uploader-left" accept="audio/*"/>
             </div>
-            <!-- Waveform -->
             <div class="waveform" id="waveform-left"></div>
-            <!-- Jog Wheel -->
             <div class="jog-container">
                 <div class="jog-wheel" id="jog-wheel-left">
                     <div class="jog-marker"></div>
@@ -66,16 +74,13 @@
                 <label for="audio-uploader-right">Upload Audio:</label>
                 <input type="file" id="audio-uploader-right" accept="audio/*"/>
             </div>
-            <!-- Waveform -->
             <div class="waveform" id="waveform-right"></div>
-            <!-- Jog Wheel -->
             <div class="jog-container">
                 <div class="jog-wheel" id="jog-wheel-right">
                     <div class="jog-marker"></div>
                 </div>
             </div>
 
-            <!-- Buttons -->
             <div class="pad-row">
                 <div class="button-group">
                     <button class="pad cue" data-tooltip="Cue"><i class="fas fa-step-backward"></i></button>
@@ -90,7 +95,6 @@
                     <button class="pad clap" data-sound="assets/audio/clap-10-36723.mp3" data-tooltip="Clap Sound"><i class="fa-solid fa-hands-clapping"></i></button>
                 </div>
             </div>
-            <!-- Speed Control -->
             <div class="speed-control">
                 <label for="speed-slider-right">Speed: <span id="rate-right">1.00</span>x</label>
                 <input type="range" id="speed-slider-right" min="0" max="7" step="1" value="3"/>
@@ -101,6 +105,16 @@
             </div>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Connect with us:</p>
+        <div class="social-links">
+            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
 
     <!-- JavaScript -->
     <script type="module" src="assets/javascript/script.js"></script>
