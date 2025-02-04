@@ -25,7 +25,13 @@ SECRET_KEY = 'django-insecure-kb48jqvbqd6w^&fe9okw65vz-)0ri)c=v9s%xs=8=+v_w6!=a#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-shantel4-project2-rnfg6d9rlsw.ws-eu117.gitpod.io',
+    'https://*.gitpod.io',  # Optional to trust all Gitpod subdomains
+]
+
 
 
 # Application definition
@@ -79,6 +85,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 
 
 # Password validation
