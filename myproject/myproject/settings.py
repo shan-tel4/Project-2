@@ -20,18 +20,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-81u$trvonkiurw^_arv=9i--nkmh-(gv+(o*y5-+-_iw9r$k8u'
+SECRET_KEY = 'django-insecure-kb48jqvbqd6w^&fe9okw65vz-)0ri)c=v9s%xs=8=+v_w6!=a#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
-CSRF_TRUSTED_ORIGINS = [
-    'https://8000-shantel4-project2-9yvgiiumk5u.ws-eu117.gitpod.io',
-    'https://*.gitpod.io'  # Trusts all Gitpod subdomains (optional)
-]
+# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -40,10 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'myapp',  # Ensure 'myapp' is listed here
 ]
-
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -57,14 +51,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'myproject.urls'
 
-import os
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        # Add custom directories where you may want to store templates outside of the app structure
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # Optional global 'templates' directory at the project root
-        'APP_DIRS': True,  # Enables Django to find templates in each app's 'templates/' folder
+        'DIRS': [],
+        'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -75,7 +66,6 @@ TEMPLATES = [
         },
     },
 ]
-
 
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
