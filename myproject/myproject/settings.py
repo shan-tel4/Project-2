@@ -28,8 +28,8 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-shantel4-project2-<random_value>.gitpod.io',  # Ensure this is correct
-    'https://*.gitpod.io',  # Optional, to trust all Gitpod subdomains
+    'https://https://8000-shantel4-project2-rnfg6d9rlsw.ws-eu117.gitpod.io/admin/',  # Ensure this is correct
+    'https://*.gitpod.io',  
 ]
 
 
