@@ -28,9 +28,11 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-shantel4-project2-rnfg6d9rlsw.ws-eu117.gitpod.io',
-    'https://*.gitpod.io',  # Optional to trust all Gitpod subdomains
+    'https://8000-shantel4-project2-<random_value>.gitpod.io',  # Ensure this is correct
+    'https://*.gitpod.io',  # Optional, to trust all Gitpod subdomains
 ]
+
+
 
 
 
@@ -43,7 +45,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'myapp',  # Make sure 'myapp' is listed here
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
