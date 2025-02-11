@@ -1,9 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Homepage</title>
-</head>
+    {% load static %}
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login - Shay Mixer 5000</title>
+        <!-- Link to the login page CSS -->
+        <link rel="stylesheet" href="{% static 'css/login.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
+    </head>
+    
 <body>
-    <h1>Welcome to the Homepage!</h1>
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="login.html">Home</a></li>
+            <li><a href="session.html">Session</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="signup.html">Sign Up</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-container">
+        <div class="login-container">
+            <h2>Login</h2>
+            <form action="#" method="POST" class="login-form">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="login-btn">Login</button>
+                <p class="signup-text">Don't have an account? <a href="signup.html">Sign up</a></p>
+            </form>
+        </div>
+    </div>
+    
+
+    <footer class="footer">
+        <p>Connect with us:</p>
+        <div class="social-links">
+            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+    
 </body>
 </html>
