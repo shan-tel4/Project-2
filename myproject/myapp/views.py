@@ -11,3 +11,6 @@ def contact_view(request):
 
 def session_view(request):
     return render(request, 'session.html')
+
+def homepage_view(request):
+    return render(request, 'homepage.html')
