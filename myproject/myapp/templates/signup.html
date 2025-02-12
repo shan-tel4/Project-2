@@ -5,24 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up - Shay Mixer 5000</title>
-    <link rel="stylesheet" href="assets/css/signup.css">
+
+    <!-- Load Static CSS -->
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+    
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="icon" type="images/png" href="assets/images/favicon.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
 </head>
 <body>
     <nav class="navbar">
         <ul class="nav-links">
-            <li><a href="login.html">Home</a></li>
-            <li><a href="session.html">Session</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="signup.html" class="active">Sign Up</a></li>
+            <li><a href="{% url 'login' %}">Home</a></li>
+            <li><a href="{% url 'session' %}">Session</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+            <li><a href="{% url 'signup' %}" class="active">Sign Up</a></li>
         </ul>
     </nav>
 
     <div class="signup-container">
         <h2>Create Your Account</h2>
         <p>Fill in your details to sign up and join us!</p>
-        <form action="#" method="POST" class="signup-form">
+        <form action="{% url 'signup' %}" method="POST" class="signup-form">
+            {% csrf_token %}
             <div class="input-group">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" placeholder="Enter your username" required>
@@ -51,6 +58,5 @@
             <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
         </div>
     </footer>
-    
 </body>
 </html>
