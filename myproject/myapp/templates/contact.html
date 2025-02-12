@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Shay Mixer 5000</title>
-    <link rel="stylesheet" href="assets/css/contact.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="icon" type="images/png" href="assets/images/favicon.png">
-</head>
+    {% load static %}
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact - Shay Mixer 5000</title>
+        <!-- Link to the contact page CSS -->
+        <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
+    </head>
+    
 <body>
     <nav class="navbar">
         <ul class="nav-links">
-            <li><a href="login.html">Home</a></li>
-            <li><a href="session.html">Session</a></li>
-            <li><a href="contact.html" class="active">Contact</a></li>
-            <li><a href="signup.html">Sign Up</a></li>
-
+            <li><a href="{% url 'login' %}">Home</a></li>
+            <li><a href="{% url 'session' %}">Session</a></li>
+            <li><a href="{% url 'contact' %}" class="active">Contact</a></li>
+            <li><a href="{% url 'signup' %}">Sign Up</a></li>
         </ul>
     </nav>
 
@@ -50,3 +52,4 @@
     
 </body>
 </html>
+
