@@ -45,4 +45,4 @@ def session_view(request):
     return render(request, 'session.html')
 
 def homepage_view(request):
-    return render(request, 'homepage.html')
+    return render(request, 'login.html')
