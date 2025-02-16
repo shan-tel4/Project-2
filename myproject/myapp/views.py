@@ -22,7 +22,7 @@ def signup_view(request):
                 print("saved user")
 
                 messages.success(request, 'signup successfully')
-                return redirect('contact')
+                return redirect('session')
             except Exception as e:
                 print("Error", e)
                 messages.error(request, 'could not signup')
