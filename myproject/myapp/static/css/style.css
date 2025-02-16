@@ -258,6 +258,12 @@ input[type="checkbox"]:checked::after {
     display: block;
 }
 
+.speed-control input[type="range"] {
+    width: 60%; /* Adjusted width to make it shorter */
+    max-width: 200px; /* Ensures it doesn't stretch too far */
+    display: block;
+    margin: 10px auto; /* Centers it */
+}
 
 /* Responsiveness for smaller screens */
 @media (max-width: 1000px) {
