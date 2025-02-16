@@ -188,6 +188,77 @@ body {
     color: #fff;
 }
 
+/* 🎨 Styling for the Slider */
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 10px;
+    background: white; /* White Track */
+    border-radius: 5px;
+    outline: none;
+    transition: background 0.3s;
+    cursor: pointer;
+}
+
+/* 🎨 Slider Knob (Thumb) */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    background: #f5b0c4; /* Pink Thumb */
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid white; /* White Border */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    background: #f5b0c4;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid white;
+}
+
+/* 🎨 Styling for the Checkbox */
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    appearance: none;
+    background-color: white; /* White Background */
+    border: 2px solid #f5b0c4; /* Pink Border */
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+}
+
+/*  When checkbox is checked */
+input[type="checkbox"]:checked {
+    background-color: #f5b0c4; /* Pink Fill */
+}
+
+/* Custom Checkbox Checkmark */
+input[type="checkbox"]::after {
+    content: "✔";
+    font-size: 14px;
+    font-weight: bold;
+    color: white; /* White Checkmark */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+/* Show Checkmark when Checked */
+input[type="checkbox"]:checked::after {
+    display: block;
+}
+
+
 /* Responsiveness for smaller screens */
 @media (max-width: 1000px) {
     .dj-mixer {
