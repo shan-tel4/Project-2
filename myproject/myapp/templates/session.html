@@ -8,7 +8,7 @@
 
     <!-- Load Static CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    
+
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
@@ -16,68 +16,99 @@
     <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
 </head>
 <body>
+
     <!-- Navbar -->
     <nav class="navbar">
         <ul class="nav-links">
-            <li><a href="{% url 'login' %}">Home</a></li>
-            <li><a href="{% url 'session' %}" class="active">Session</a></li>
+            <li><a href="{% url 'homepage' %}" class="active">Home</a></li>
+            <li><a href="{% url 'session' %}">Session</a></li>
             <li><a href="{% url 'contact' %}">Contact</a></li>
             <li><a href="{% url 'signup' %}">Sign Up</a></li>
         </ul>
     </nav>
 
-    <!-- Main Content: DJ Mixer -->
-    <div class="dj-mixer">
-        <div class="logo">Shay Mixer 5000</div>
+    <!-- Main Content Wrapper -->
+    <div class="main-container">
+        <div class="dj-mixer">
+            <!-- Logo -->
+            <div class="logo">Shay Mixer 5000</div>
 
-        <div class="crossfader">
-            <label for="crossfader-slider">CROSSFADER:</label>
-            <input type="range" id="crossfader-slider" min="0" max="100" value="50"/>
-        </div>
-
-        <!-- Left Deck -->
-        <div class="deck deck-left">
-            <div class="deck-label">Deck A</div>
-            <div class="audio-upload">
-                <label for="audio-uploader-left">Upload Audio:</label>
-                <input type="file" id="audio-uploader-left" accept="audio/*"/>
+            <div class="crossfader">
+                <label for="crossfader-slider">CROSSFADER:</label>
+                <input type="range" id="crossfader-slider" min="0" max="100" value="50"/>
             </div>
-            <div class="waveform" id="waveform-left"></div>
-            <div class="jog-container">
-                <div class="jog-wheel" id="jog-wheel-left">
-                    <div class="jog-marker"></div>
+
+            <!-- Left Deck -->
+            <div class="deck deck-left">
+                <div class="deck-label">Deck A</div>
+                <div class="audio-upload">
+                    <label for="audio-uploader-left">Upload Audio:</label>
+                    <input type="file" id="audio-uploader-left" accept="audio/*"/>
+                </div>
+                <div class="waveform" id="waveform-left"></div>
+                <div class="jog-container">
+                    <div class="jog-wheel" id="jog-wheel-left">
+                        <div class="jog-marker"></div>
+                    </div>
+                </div>
+                <div class="pad-row">
+                    <div class="button-group">
+                        <button class="pad cue" data-tooltip="Cue"><i class="fas fa-step-backward"></i></button>
+                        <button class="pad play" data-tooltip="Play"><i class="fas fa-play"></i></button>
+                        <button class="pad pause" data-tooltip="Pause"><i class="fas fa-pause"></i></button>
+                        <button class="pad loop" data-tooltip="Loop"><i class="fas fa-redo"></i></button>
+                    </div>
+                    <div class="button-group">
+                        <button class="pad drum" data-sound="{% static 'audio/tr909-snare-drum-241413.mp3' %}" data-tooltip="Drum Sound"><i class="fas fa-drum"></i></button>
+                        <button class="pad scratch" data-sound="{% static 'audio/scratch-87658.mp3' %}" data-tooltip="Scratch Effect"><i class="fas fa-compact-disc"></i></button>
+                        <button class="pad horn" data-sound="{% static 'audio/dj-airhorn-1012199-PREVIEW.mp3' %}" data-tooltip="Horn Sound"><i class="fa-solid fa-bullhorn"></i></button>
+                        <button class="pad clap" data-sound="{% static 'audio/clap-10-36723.mp3' %}" data-tooltip="Clap Sound"><i class="fa-solid fa-hands-clapping"></i></button>
+                    </div>
+                </div>
+                <div class="speed-control">
+                    <label for="speed-slider-left">Speed: <span id="rate-left">1.00</span>x</label>
+                    <input type="range" id="speed-slider-left" min="0" max="7" step="1" value="3" />
+                    <label>
+                        <input type="checkbox" id="preserve-pitch-left" checked/>
+                        Preserve pitch
+                    </label>
                 </div>
             </div>
-            <div class="pad-row">
-                <div class="button-group">
-                    <button class="pad drum" data-sound="{% static 'audio/tr909-snare-drum-241413.mp3' %}" data-tooltip="Drum Sound"><i class="fas fa-drum"></i></button>
-                    <button class="pad scratch" data-sound="{% static 'audio/scratch-87658.mp3' %}" data-tooltip="Scratch Effect"><i class="fas fa-compact-disc"></i></button>
-                    <button class="pad horn" data-sound="{% static 'audio/dj-airhorn-1012199-PREVIEW.mp3' %}" data-tooltip="Horn Sound"><i class="fa-solid fa-bullhorn"></i></button>
-                    <button class="pad clap" data-sound="{% static 'audio/clap-10-36723.mp3' %}" data-tooltip="Clap Sound"><i class="fa-solid fa-hands-clapping"></i></button>
-                </div>
-            </div>
-        </div>
 
-        <!-- Right Deck -->
-        <div class="deck deck-right">
-            <div class="deck-label">Deck B</div>
-            <div class="audio-upload">
-                <label for="audio-uploader-right">Upload Audio:</label>
-                <input type="file" id="audio-uploader-right" accept="audio/*"/>
-            </div>
-            <div class="waveform" id="waveform-right"></div>
-            <div class="jog-container">
-                <div class="jog-wheel" id="jog-wheel-right">
-                    <div class="jog-marker"></div>
+            <!-- Right Deck -->
+            <div class="deck deck-right">
+                <div class="deck-label">Deck B</div>
+                <div class="audio-upload">
+                    <label for="audio-uploader-right">Upload Audio:</label>
+                    <input type="file" id="audio-uploader-right" accept="audio/*"/>
                 </div>
-            </div>
-
-            <div class="pad-row">
-                <div class="button-group">
-                    <button class="pad drum" data-sound="{% static 'audio/tr909-snare-drum-241413.mp3' %}" data-tooltip="Drum Sound"><i class="fas fa-drum"></i></button>
-                    <button class="pad scratch" data-sound="{% static 'audio/scratch-87658.mp3' %}" data-tooltip="Scratch Effect"><i class="fas fa-compact-disc"></i></button>
-                    <button class="pad horn" data-sound="{% static 'audio/dj-airhorn-1012199-PREVIEW.mp3' %}" data-tooltip="Horn Sound"><i class="fa-solid fa-bullhorn"></i></button>
-                    <button class="pad clap" data-sound="{% static 'audio/clap-10-36723.mp3' %}" data-tooltip="Clap Sound"><i class="fa-solid fa-hands-clapping"></i></button>
+                <div class="waveform" id="waveform-right"></div>
+                <div class="jog-container">
+                    <div class="jog-wheel" id="jog-wheel-right">
+                        <div class="jog-marker"></div>
+                    </div>
+                </div>
+                <div class="pad-row">
+                    <div class="button-group">
+                        <button class="pad cue" data-tooltip="Cue"><i class="fas fa-step-backward"></i></button>
+                        <button class="pad play" data-tooltip="Play"><i class="fas fa-play"></i></button>
+                        <button class="pad pause" data-tooltip="Pause"><i class="fas fa-pause"></i></button>
+                        <button class="pad loop" data-tooltip="Loop"><i class="fas fa-redo"></i></button>
+                    </div>
+                    <div class="button-group">
+                        <button class="pad drum" data-sound="{% static 'audio/tr909-snare-drum-241413.mp3' %}" data-tooltip="Drum Sound"><i class="fas fa-drum"></i></button>
+                        <button class="pad scratch" data-sound="{% static 'audio/scratch-87658.mp3' %}" data-tooltip="Scratch Effect"><i class="fas fa-compact-disc"></i></button>
+                        <button class="pad horn" data-sound="{% static 'audio/dj-airhorn-1012199-PREVIEW.mp3' %}" data-tooltip="Horn Sound"><i class="fa-solid fa-bullhorn"></i></button>
+                        <button class="pad clap" data-sound="{% static 'audio/clap-10-36723.mp3' %}" data-tooltip="Clap Sound"><i class="fa-solid fa-hands-clapping"></i></button>
+                    </div>
+                </div>
+                <div class="speed-control">
+                    <label for="speed-slider-right">Speed: <span id="rate-right">1.00</span>x</label>
+                    <input type="range" id="speed-slider-right" min="0" max="7" step="1" value="3"/>
+                    <label>
+                        <input type="checkbox" id="preserve-pitch-right" checked/>
+                        Preserve pitch
+                    </label>
                 </div>
             </div>
         </div>
