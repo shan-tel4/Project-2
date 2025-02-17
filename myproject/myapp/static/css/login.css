@@ -32,7 +32,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 50px;
+    padding: 10px 30px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     position: fixed;
     top: 0;
@@ -43,14 +43,14 @@ body {
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 30px;
+    gap: 25px;
 }
 
 .nav-links a {
     text-decoration: none;
     color: #f5b0c4;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 16px;
     transition: color 0.3s ease-in-out;
 }
 
