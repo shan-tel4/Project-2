@@ -48,7 +48,7 @@ def contact_view(request):
                     subject=f"New Contact Form Submission from {name}",
                     message=message,
                     from_email=email,  # Sender's email
-                    recipient_list=['your_email@example.com'],  # Replace with your email
+                    recipient_list=['shantel490@googlemail.com'], 
                     fail_silently=False,
                 )
                 messages.success(request, "Your message has been sent successfully!")
