@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap');
 
-
-/* General Styling */
 * {
     margin: 0;
     padding: 0;
@@ -17,10 +15,9 @@ body {
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    padding-bottom: 60px; /* Add space to the bottom for the footer */
+    padding-bottom: 60px;
 }
 
-/* Navbar */
 .navbar {
     width: 100%;
     background: #1f2235;
@@ -53,8 +50,6 @@ body {
     color: #fff;
 }
 
-
-/* Main Content: DJ Mixer */
 .dj-mixer {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -63,7 +58,7 @@ body {
     border-radius: 15px;
     padding: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    margin-top: 120px; /* Ensure content does not overlap navbar */
+    margin-top: 120px;
     width: 95%;
     max-width: 1000px;
 }
@@ -72,8 +67,9 @@ body {
     grid-column: span 2;
     font-family: "Rowdies", sans-serif;
     font-weight: 700;
+    margin-top: 25px;
     text-align: center;
-    font-size: 50px;
+    font-size: 35px;
     color: #f5b0c4;
     font-weight: bold;
 }
@@ -160,7 +156,6 @@ body {
     color: #000;
 }
 
-/* Footer */
 .footer {
     text-align: center;
     padding: 2px;
@@ -169,10 +164,9 @@ body {
     position: fixed;
     bottom: 0;
     width: 100%;
-    margin-top: 10px; /* Ensure footer is separated from content */
+    margin-top: 10px;
 }
 
-/* Social links in footer */
 .social-links {
     display: flex;
     justify-content: center;
@@ -190,29 +184,27 @@ body {
     color: #fff;
 }
 
-/*  Styling for the Slider */
 input[type="range"] {
     -webkit-appearance: none;
     appearance: none;
     width: 100%;
     height: 10px;
-    background: 4px solid #4F4A85; 
+    background: #4F4A85;
     border-radius: 5px;
     outline: none;
     transition: background 0.3s;
     cursor: pointer;
 }
 
-/* Slider Knob (Thumb) */
 input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     width: 18px;
     height: 18px;
-    background: #f5b0c4; /* Pink Thumb */
+    background: #f5b0c4;
     border-radius: 50%;
     cursor: pointer;
-    border: 2px solid white; /* White Border */
+    border: 2px solid white;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
@@ -225,29 +217,26 @@ input[type="range"]::-moz-range-thumb {
     border: 2px solid white;
 }
 
-/* 🎨 Styling for the Checkbox */
 input[type="checkbox"] {
     width: 18px;
     height: 18px;
     appearance: none;
-    background-color: white; /* White Background */
-    border: 2px solid #f5b0c4; /* Pink Border */
+    background-color: white;
+    border: 2px solid #f5b0c4;
     border-radius: 4px;
     cursor: pointer;
     position: relative;
 }
 
-/*  When checkbox is checked */
 input[type="checkbox"]:checked {
-    background-color: #f5b0c4; /* Pink Fill */
+    background-color: #f5b0c4;
 }
 
-/* Custom Checkbox Checkmark */
 input[type="checkbox"]::after {
     content: "✔";
     font-size: 14px;
     font-weight: bold;
-    color: white; /* White Checkmark */
+    color: white;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -255,19 +244,23 @@ input[type="checkbox"]::after {
     display: none;
 }
 
-/* Show Checkmark when Checked */
 input[type="checkbox"]:checked::after {
     display: block;
 }
 
 .speed-control input[type="range"] {
-    width: 60%; /* Adjusted width to make it shorter */
-    max-width: 200px; /* Ensures it doesn't stretch too far */
+    width: 60%;
+    max-width: 200px;
     display: block;
-    margin: 10px auto; /* Centers it */
+    margin: 10px auto;
+    background: #4F4A85;
+    height: 10px;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    transition: background 0.3s;
 }
 
-/* Responsiveness for smaller screens */
 @media (max-width: 1000px) {
     .dj-mixer {
         flex-direction: column;
