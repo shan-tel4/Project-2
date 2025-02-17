@@ -28,6 +28,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 20px 50px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     position: fixed;
     top: 0;
     left: 0;
@@ -51,6 +52,7 @@ body {
 .nav-links a:hover, .nav-links .active {
     color: #fff;
 }
+
 
 /* Main Content: DJ Mixer */
 .dj-mixer {
@@ -188,13 +190,13 @@ body {
     color: #fff;
 }
 
-/* 🎨 Styling for the Slider */
+/*  Styling for the Slider */
 input[type="range"] {
     -webkit-appearance: none;
     appearance: none;
     width: 100%;
     height: 10px;
-    background: white; /* White Track */
+    background: 4px solid #4F4A85; /* White Track */
     border-radius: 5px;
     outline: none;
     transition: background 0.3s;
