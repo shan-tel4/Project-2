@@ -44,7 +44,7 @@
                 <textarea id="message" name="message" placeholder="Write your message here" required></textarea>
             </div>
             
-            <button type="submit" class="contact-btn">Send Message</button>
+            <button type="submit" class="contact-btn" id="sendButton">Send Message</button>
         </form>
     </div>
 
@@ -56,7 +56,18 @@
             <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
         </div>
     </footer>
-    
+
+    <!-- JavaScript to change button text -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const sendButton = document.getElementById("sendButton");
+
+            sendButton.addEventListener("click", function(event) {
+                event.preventDefault(); // Prevent actual form submission for testing
+                sendButton.textContent = "Sent";
+                sendButton.disabled = true; // Disable button to prevent multiple clicks
+            });
+        });
+    </script>
 </body>
 </html>
-
