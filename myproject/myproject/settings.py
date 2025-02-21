@@ -110,5 +110,12 @@ else:
     EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')  # Load from environment variable
     DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
+    # Redirect after successful login
+LOGIN_REDIRECT_URL = '/'
+
+# Redirect after logout
+LOGOUT_REDIRECT_URL = '/login/'
+
+
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
