@@ -121,19 +121,41 @@ body {
     border-radius: 50%;
     background: radial-gradient(circle, #14162b 30%, #20243e 50%, #14162b 70%);
     box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5), 0 5px 15px rgba(0, 0, 0, 0.3);
+    overflow: hidden; /* Keeps the marker inside the wheel */
 }
 
+/* Spin animation for jog wheel */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.jog-wheel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Marker correctly spins inside the wheel */
 .jog-marker {
     position: absolute;
     width: 6px;
     height: 70px;
     background: #f5b0c4;
-    top: 0;
+    top: 15px; /* Keep it inside the circle */
     left: 50%;
-    transform-origin: center bottom;
+    transform-origin: 50% 85%; /* Spins around the bottom of the marker */
     transform: translateX(-50%);
     border-radius: 3px;
-    animation: spin 2s linear infinite paused;
+}
+
+/* Add spin effect */
+.jog-wheel.playing .jog-marker {
+    animation: spin 3s linear infinite;
 }
 
 .pad-row {
@@ -149,9 +171,20 @@ body {
     height: 40px;
     margin: 5px;
     font-size: 12px;
+    background: #4F4A85;
+    color: #fff;
+    border-radius: 8px;
+    transition: background 0.3s, color 0.3s;
 }
 
+/* Pad hover effect */
 .pad:hover {
+    background: #f5b0c4;
+    color: #000;
+}
+
+/* Pad active state stays pink */
+.pad.active {
     background: #f5b0c4;
     color: #000;
 }
@@ -184,83 +217,7 @@ body {
     color: #fff;
 }
 
-input[type="range"] {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 100%;
-    height: 10px;
-    background: #4F4A85;
-    border-radius: 5px;
-    outline: none;
-    transition: background 0.3s;
-    cursor: pointer;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 18px;
-    height: 18px;
-    background: #f5b0c4;
-    border-radius: 50%;
-    cursor: pointer;
-    border: 2px solid white;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-}
-
-input[type="range"]::-moz-range-thumb {
-    width: 18px;
-    height: 18px;
-    background: #f5b0c4;
-    border-radius: 50%;
-    cursor: pointer;
-    border: 2px solid white;
-}
-
-input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-    appearance: none;
-    background-color: white;
-    border: 2px solid #f5b0c4;
-    border-radius: 4px;
-    cursor: pointer;
-    position: relative;
-}
-
-input[type="checkbox"]:checked {
-    background-color: #f5b0c4;
-}
-
-input[type="checkbox"]::after {
-    content: "✔";
-    font-size: 14px;
-    font-weight: bold;
-    color: white;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: none;
-}
-
-input[type="checkbox"]:checked::after {
-    display: block;
-}
-
-.speed-control input[type="range"] {
-    width: 60%;
-    max-width: 200px;
-    display: block;
-    margin: 10px auto;
-    background: #4F4A85;
-    height: 10px;
-    border-radius: 5px;
-    outline: none;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
+/* Responsive Design */
 @media (max-width: 1000px) {
     .dj-mixer {
         flex-direction: column;
@@ -283,4 +240,5 @@ input[type="checkbox"]:checked::after {
         height: 35px;
     }
 }
+
 

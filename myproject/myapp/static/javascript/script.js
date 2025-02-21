@@ -1,6 +1,5 @@
 import WaveSurfer from 'https://cdn.jsdelivr.net/npm/wavesurfer.js@7/dist/wavesurfer.esm.js';
 
-
 // Speed options
 const speeds = [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2];
 
@@ -28,9 +27,6 @@ const wavesurferRight = WaveSurfer.create({
 function setupDeckControls(deckName, wavesurferInstance) {
     const prefix = deckName === 'left' ? 'left' : 'right';
     const jogWheel = document.querySelector(`#jog-wheel-${deckName}`);
-    let isLooping = false; // Loop toggle state
-    let loopStart = 0; // Default loop start time
-    let loopEnd = 5; // Default loop duration in seconds
 
     // Audio Upload
     document.getElementById(`audio-uploader-${prefix}`).addEventListener('change', (event) => {
@@ -38,9 +34,6 @@ function setupDeckControls(deckName, wavesurferInstance) {
         if (file) {
             const fileURL = URL.createObjectURL(file);
             wavesurferInstance.load(fileURL);
-            console.log(`Deck ${deckName.toUpperCase()}: File Loaded`);
-        } else {
-            console.error(`Deck ${deckName.toUpperCase()}: No file selected`);
         }
     });
 
@@ -48,8 +41,7 @@ function setupDeckControls(deckName, wavesurferInstance) {
     document.querySelector(`.deck-${deckName} .pad.play`).addEventListener('click', () => {
         if (!wavesurferInstance.isPlaying()) {
             wavesurferInstance.play();
-            jogWheel.classList.add('playing');
-            console.log(`Deck ${deckName.toUpperCase()}: Playing`);
+            jogWheel.classList.add('playing'); // Start spinning
         }
     });
 
@@ -57,54 +49,29 @@ function setupDeckControls(deckName, wavesurferInstance) {
     document.querySelector(`.deck-${deckName} .pad.pause`).addEventListener('click', () => {
         if (wavesurferInstance.isPlaying()) {
             wavesurferInstance.pause();
-            jogWheel.classList.remove('playing');
-            console.log(`Deck ${deckName.toUpperCase()}: Paused`);
-        }
-    });
-
-    // Rewind Button (Cue)
-    document.querySelector(`.deck-${deckName} .pad.cue`).addEventListener('click', () => {
-        const rewindSeconds = 5; // Time to rewind
-        const currentTime = wavesurferInstance.getCurrentTime(); // Current playback time
-        const duration = wavesurferInstance.getDuration(); // Total duration of the audio
-
-        if (currentTime - rewindSeconds > 0) {
-            const newTime = (currentTime - rewindSeconds) / duration; // Calculate new position
-            wavesurferInstance.seekTo(newTime);
-            console.log(`Deck ${deckName.toUpperCase()}: Rewinded by ${rewindSeconds} seconds`);
-        } else {
-            wavesurferInstance.seekTo(0); // Reset to the start if out of range
-            console.log(`Deck ${deckName.toUpperCase()}: Rewinded to the start`);
-        }
-    });
-
-    // Loop Button
-    document.querySelector(`.deck-${deckName} .pad.loop`).addEventListener('click', () => {
-        isLooping = !isLooping; // Toggle looping
-        if (isLooping) {
-            loopStart = wavesurferInstance.getCurrentTime(); // Set loop start to current time
-            loopEnd = Math.min(loopStart + 5, wavesurferInstance.getDuration()); // Set loop end (5 seconds or end of track)
-            console.log(`Deck ${deckName.toUpperCase()}: Loop ON (Start: ${loopStart}s, End: ${loopEnd}s)`);
-        } else {
-            console.log(`Deck ${deckName.toUpperCase()}: Loop OFF`);
-        }
-    });
-
-    // Monitor Playback and Handle Looping
-    wavesurferInstance.on('audioprocess', () => {
-        if (isLooping) {
-            const currentTime = wavesurferInstance.getCurrentTime();
-            if (currentTime >= loopEnd) {
-                wavesurferInstance.seekTo(loopStart / wavesurferInstance.getDuration());
-                console.log(`Deck ${deckName.toUpperCase()}: Looping back to ${loopStart}s`);
-            }
+            jogWheel.classList.remove('playing'); // Stop spinning
         }
     });
 
     // Stop spinning when audio finishes
     wavesurferInstance.on('finish', () => {
         jogWheel.classList.remove('playing');
-        console.log(`Deck ${deckName.toUpperCase()}: Audio finished`);
+    });
+}
+
+// Initialize pad sounds with persistent color change
+function initializePadSounds() {
+    const pads = document.querySelectorAll('.pad');
+
+    pads.forEach(pad => {
+        pad.addEventListener('click', () => {
+            const soundSrc = pad.getAttribute('data-sound');
+            if (soundSrc) {
+                const audio = new Audio(soundSrc);
+                audio.play();
+                pad.classList.add('active'); // Keep pad pink
+            }
+        });
     });
 }
 
@@ -138,28 +105,9 @@ function setupSpeedControl(deckName, wavesurferInstance) {
     speedLabel.textContent = initialSpeed.toFixed(2);
 }
 
-setupSpeedControl('left', wavesurferLeft);
-setupSpeedControl('right', wavesurferRight);
+// Setup decks and sounds
 setupDeckControls('left', wavesurferLeft);
 setupDeckControls('right', wavesurferRight);
-
-// Initialize pad sounds
-function initializePadSounds() {
-    const pads = document.querySelectorAll('.pad');
-
-    pads.forEach(pad => {
-        pad.addEventListener('click', () => {
-            const soundSrc = pad.getAttribute('data-sound');
-            if (soundSrc) {
-                const audio = new Audio(soundSrc);
-                audio.play();
-                console.log(`Playing sound: ${soundSrc}`);
-            } else {
-                console.warn('No sound file associated with this button.');
-            }
-        });
-    });
-}
-
-// Initialize sound functionality
 initializePadSounds();
+setupSpeedControl('left', wavesurferLeft);
+setupSpeedControl('right', wavesurferRight);
