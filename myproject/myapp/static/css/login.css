@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-
-
 /* General Page Styling */
 body {
     display: flex;
@@ -102,8 +100,44 @@ body {
     background: #4a4d63;
     color: #fff;
     font-size: 16px;
+    transition: border 0.3s ease-in-out;
 }
 
+.input-group input:focus {
+    border: 2px solid #f5b0c4;
+    outline: none;
+}
+
+/* Error Message Styling */
+.error-message {
+    color: #ff4d4d;
+    background: #ffcccc;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Password Toggle Icon */
+.password-wrapper {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #f5b0c4;
+    font-size: 18px;
+}
+
+.toggle-password:hover {
+    color: #fff;
+}
+
+/* Login Button */
 .login-btn {
     width: 100%;
     padding: 12px;
@@ -113,12 +147,20 @@ body {
     cursor: pointer;
     font-weight: bold;
     font-size: 16px;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.2s ease-in-out;
 }
 
 .login-btn:hover {
     background: #fff;
     color: #000;
+    transform: scale(1.05);
+}
+
+/* Loading Animation for Button */
+.login-btn:disabled {
+    background: #d9d9d9;
+    color: #666;
+    cursor: not-allowed;
 }
 
 /* Sign-up Text */
