@@ -104,7 +104,7 @@ body {
 }
 
 .input-group input:focus {
-    border: 2px solid #f5b0c4;
+    border: 2px solid ;
     outline: none;
 }
 
