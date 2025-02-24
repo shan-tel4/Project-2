@@ -180,6 +180,10 @@ body {
     color: #fff;
 }
 
+.signup-text a {
+    text-decoration: none !important;
+}
+
 .text {
     color: #fff;
 }
