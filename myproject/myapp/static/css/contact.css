@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* General Styling */
 body {
     font-family: 'Poppins', sans-serif;
     background: #4a4d63;
@@ -22,6 +25,15 @@ body {
     z-index: 1000;
 }
 
+/* Hamburger Icon (Hidden by Default) */
+.hamburger {
+    display: none;
+    font-size: 24px;
+    color: #f5b0c4;
+    cursor: pointer;
+}
+
+/* Navigation Links */
 .nav-links {
     list-style: none;
     display: flex;
@@ -36,18 +48,20 @@ body {
     transition: color 0.3s ease-in-out;
 }
 
-.nav-links a:hover, .nav-links .active {
+.nav-links a:hover,
+.nav-links .active {
     color: #fff;
 }
 
-/* Contact Form */
+/* Contact Form Container */
 .contact-container {
     background: #343654;
-    padding: 50px;
+    padding: 40px;
     border-radius: 15px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     text-align: center;
-    width: 450px;
+    width: 100%;
+    max-width: 450px;
     margin: 120px auto 50px;
 }
 
@@ -62,6 +76,7 @@ body {
     margin-bottom: 20px;
 }
 
+/* Input Fields */
 .input-group {
     margin-bottom: 15px;
     text-align: left;
@@ -74,7 +89,7 @@ body {
     margin-bottom: 5px;
 }
 
-.input-group input, 
+.input-group input,
 .input-group textarea {
     width: 100%;
     padding: 12px;
@@ -85,6 +100,7 @@ body {
     font-size: 16px;
 }
 
+/* Send Button */
 .contact-btn {
     width: 100%;
     padding: 12px;
@@ -128,4 +144,86 @@ body {
 
 .social-icon:hover {
     color: #fff;
+}
+
+/* Responsive Design */
+
+/* Tablet and Mobile Styling */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block; /* Show hamburger menu on smaller screens */
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #1f2235;
+        flex-direction: column;
+        display: none;
+        padding: 20px 0;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .navbar {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .contact-container {
+        width: 90%;
+        padding: 30px;
+    }
+}
+
+/* Fix for Small Screens (iPhone 12 Pro Max) */
+@media (max-width: 428px) {
+    .navbar {
+        padding: 10px 15px;
+    }
+
+    .nav-links a {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    /* Reduce the size of the contact container */
+    .contact-container {
+        width: 85%;  /* Make the container narrower */
+        padding: 15px;  /* Less padding for smaller screens */
+        margin: 80px auto 20px;  /* Adjust top margin for better spacing */
+    }
+
+    .contact-container h2 {
+        font-size: 18px;  /* Smaller heading */
+    }
+
+    .contact-container p {
+        font-size: 12px;  /* Smaller paragraph text */
+    }
+
+    .input-group input,
+    .input-group textarea {
+        font-size: 12px;  /* Smaller input text */
+        padding: 8px;  /* Smaller padding */
+    }
+
+    .contact-btn {
+        font-size: 12px;  /* Smaller button text */
+        padding: 10px;
+    }
+
+    .hamburger {
+        margin-top: 5px;
+    }
 }
