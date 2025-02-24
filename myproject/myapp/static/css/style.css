@@ -71,7 +71,6 @@ body {
     text-align: center;
     font-size: 35px;
     color: #f5b0c4;
-    font-weight: bold;
 }
 
 .crossfader {
@@ -121,10 +120,9 @@ body {
     border-radius: 50%;
     background: radial-gradient(circle, #14162b 30%, #20243e 50%, #14162b 70%);
     box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5), 0 5px 15px rgba(0, 0, 0, 0.3);
-    overflow: hidden; /* Keeps the marker inside the wheel */
+    overflow: hidden;
 }
 
-/* Spin animation for jog wheel */
 @keyframes spin {
     from {
         transform: rotate(0deg);
@@ -140,20 +138,18 @@ body {
     height: 100%;
 }
 
-/* Marker correctly spins inside the wheel */
 .jog-marker {
     position: absolute;
     width: 6px;
     height: 70px;
     background: #f5b0c4;
-    top: 15px; /* Keep it inside the circle */
+    top: 15px;
     left: 50%;
-    transform-origin: 50% 85%; /* Spins around the bottom of the marker */
+    transform-origin: 50% 85%;
     transform: translateX(-50%);
     border-radius: 3px;
 }
 
-/* Add spin effect */
 .jog-wheel.playing .jog-marker {
     animation: spin 3s linear infinite;
 }
@@ -177,16 +173,14 @@ body {
     transition: background 0.3s, color 0.3s;
 }
 
-/* Pad hover effect */
 .pad:hover {
     background: #f5b0c4;
     color: #000;
 }
 
-/* Pad active state stays pink */
-.pad.active {
-    background: #f5b0c4;
-    color: #000;
+.speed-control {
+    margin-top: 10px;
+    font-size: 14px;
 }
 
 .footer {
@@ -197,7 +191,6 @@ body {
     position: fixed;
     bottom: 0;
     width: 100%;
-    margin-top: 10px;
 }
 
 .social-links {
@@ -217,28 +210,25 @@ body {
     color: #fff;
 }
 
-/* Responsive Design */
 @media (max-width: 1000px) {
     .dj-mixer {
         flex-direction: column;
         gap: 15px;
         padding: 10px;
     }
-
     .deck {
         width: 100%;
         max-width: 100%;
     }
-
     .jog-container {
         width: 150px;
         height: 150px;
     }
-
     .pad {
         width: 35px;
         height: 35px;
     }
 }
+
 
 
