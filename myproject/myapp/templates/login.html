@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-{% load static %}
+    {% load static %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,8 +22,15 @@
     <meta property="og:image" content="{% static 'images/favicon.png' %}">
 </head>
 <body>
-    <!-- Navbar -->
+    <!-- Responsive Navbar -->
     <nav class="navbar">
+        <!-- Hidden checkbox for toggling the mobile menu -->
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <!-- Hamburger menu icon -->
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span></span>
+        </label>
+
         <ul class="nav-links">
             <li><a href="{% url 'homepage' %}" class="active">Home</a></li>
             <li><a href="{% url 'session' %}">Session</a></li>
@@ -31,6 +38,10 @@
             <li><a href="{% url 'signup' %}">Sign Up</a></li>
             <li><a href="{% url 'logout' %}">Logout</a></li>
         </ul>
+        
+        <!-- Logo moved to the end (right side) -->
+        <div class="nav-logo">
+        </div>
     </nav>
 
     <!-- Main Content Wrapper -->
@@ -58,7 +69,6 @@
                 <button type="submit" class="login-btn" id="login-btn">Login</button>
             </form>
 
-         
             <p class="signup-text">Don't have an account? <a href="{% url 'signup' %}">Sign Up</a></p>
         </div>
     </div>
@@ -98,4 +108,3 @@
     </script>
 </body>
 </html>
-
