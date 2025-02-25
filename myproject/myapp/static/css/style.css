@@ -167,20 +167,19 @@ body {
     animation: spin 3s linear infinite;
 }
 
-/* Pad Buttons Styling - Smaller and Neater */
 .pad-row {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);  /* 4 buttons in a row */
-    gap: 5px;  /* Reduced gap between buttons */
+    grid-template-columns: repeat(4, min-content);  /* Only take up as much space as needed */
+    gap: 5px 0;  /* No horizontal gap */
     margin-top: 10px;
-    justify-items: center;
+    justify-content: center;  /* Center buttons */
     align-items: center;
 }
 
 .pad {
-    width: 35px;  /* Reduced size */
-    height: 35px;  /* Reduced size */
-    margin: 3px;  /* Smaller margins */
+    width: 35px;  /* Button size */
+    height: 35px;
+    margin: 5px; 
     background: #4a4d63;
     color: #fff;
     border: none;
@@ -190,7 +189,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 12px;  /* Smaller font size */
+    font-size: 12px;
 }
 
 .pad:hover {
@@ -220,7 +219,6 @@ body {
 .pad:hover::after {
     opacity: 1;
 }
-
 
 /* Footer */
 .footer {
@@ -308,7 +306,7 @@ body {
     }
 
     .pad-row {
-        gap: 8px;
+        gap: 8px 2px;  /* Adjusted gap for smaller screens */
     }
 
     .jog-container {
