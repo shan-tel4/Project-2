@@ -114,14 +114,13 @@ LOGGING = {
     },
 }
 
-# TEMPLATES Setting to define where to look for templates
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'templates'),  # Point to templates directory in the root of the project
+            os.path.join(BASE_DIR, 'templates'),  # This is if you keep it in the root level
         ],
-        'APP_DIRS': True,  # Allow Django to search for templates in the 'templates' folder inside each app
+        'APP_DIRS': True,  # Allow Django to search inside 'templates' of each app
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -132,4 +131,5 @@ TEMPLATES = [
         },
     },
 ]
+
 
