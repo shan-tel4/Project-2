@@ -49,6 +49,9 @@ INSTALLED_APPS = [
     'myapp',  # Your app name
 ]
 
+# Make sure to set ROOT_URLCONF
+ROOT_URLCONF = 'myproject.urls'
+
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
 # Database configuration (SQLite for local development, PostgreSQL for production)
