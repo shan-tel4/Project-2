@@ -104,6 +104,22 @@ body {
     transition: background 0.3s;
 }
 
+/* For WebKit browsers (Chrome, Safari, Edge) */
+#crossfader-slider::-webkit-slider-thumb {
+    background: #f5b0c4;  /* Change this to your desired color */
+}
+
+/* For Firefox */
+#crossfader-slider::-moz-range-thumb {
+    background: #f5b0c4;  /* Same color for Firefox */
+}
+
+/* For Internet Explorer */
+#crossfader-slider::-ms-thumb {
+    background: #f5b0c4;  /* Same color for IE */
+}
+
+
 .deck {
     background: #343654;
     border-radius: 10px;

@@ -1,7 +1,8 @@
 from django.contrib import admin
-from .models import User, AudioFile, Session, Deck, DeckAssignment
+from django.contrib.auth.models import User  # Import Django's built-in User model
+from .models import AudioFile, Session, Deck, DeckAssignment
 
-admin.site.register(User)
+# Do NOT register User if you are using Django's built-in User model
 admin.site.register(AudioFile)
 admin.site.register(Session)
 admin.site.register(Deck)
