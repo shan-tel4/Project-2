@@ -9,8 +9,11 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-kb48jqvbqd6w^&fe9okw65vz-)
 
 DEBUG = False  # Set to False for production on Heroku
 
-ALLOWED_HOSTS = ['your-heroku-app.herokuapp.com', 'www.your-domain.com', 'shay-mixer-5000-94ce7070b792.herokuapp.com',]  # Change to your Heroku app domain
-
+ALLOWED_HOSTS = [
+    'your-heroku-app.herokuapp.com', 
+    'www.your-domain.com', 
+    'shay-mixer-5000-94ce7070b792.herokuapp.com',  
+]
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 
