@@ -1,59 +1,76 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.core.mail import send_mail
-from django.contrib.auth import authenticate, login, logout  # Import for authentication
-from django.contrib.auth.decorators import login_required  # Protect views for logged-in users
-from .forms import ContactForm
+from django.contrib.auth import authenticate, login, logout, get_user_model
+from django.contrib.auth.decorators import login_required
+from .forms import ContactForm, AudioUploadForm
+from .models import AudioFile
 
-# Login View
+
+# ✅ Homepage View (Fixed)
+def homepage_view(request):
+    return render(request, 'login.html')  # Ensure you have a `homepage.html` in `templates/`
+
+
+# ✅ Login View
 def login_view(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
 
-        user = authenticate(request, username=username, password=password)  # Authenticate user
+        user = authenticate(request, username=username, password=password)
 
         if user is not None:
-            login(request, user)  # Log the user in
+            login(request, user)
             messages.success(request, 'Login successful!')
-            return redirect('session')  # Redirect to session page on successful login
+            return redirect('session')
         else:
-            messages.error(request, 'Invalid username or password.')  # Show error if login fails
+            messages.error(request, 'Invalid username or password.')
 
-    return render(request, 'login.html')  # Render login page for GET requests or failed logins
+    return render(request, 'session.html')
 
-# Logout View
+
+# ✅ Logout View
 def logout_view(request):
-    logout(request)  # Log the user out
+    logout(request)
     messages.success(request, 'You have been logged out successfully.')
-    return redirect('login')  # Redirect to login page after logout
+    return redirect('login')
 
-# Signup View
+
+# ✅ Signup View
 def signup_view(request):
-    from django.contrib.auth.models import User  # Import inside the function
-
     if request.method == 'POST':
-        username = request.POST['username']
-        email = request.POST['email']
-        password = request.POST['password']
-        confirm_password = request.POST['confirm-password']
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        confirm_password = request.POST.get('confirm-password')
 
-        if password == confirm_password:
-            try:
-                user = User.objects.create_user(username=username, email=email, password=password)
-                user.save()
-
-                messages.success(request, 'Signup successful!')
-                return redirect('session')  # Redirect to session after signup
-            except Exception as e:
-                print("Error:", e)
-                messages.error(request, 'Signup failed. Please try again.')
-        else:
+        if password != confirm_password:
             messages.error(request, 'Passwords do not match.')
+            return redirect('signup')
+
+        User = get_user_model()
+
+        if User.objects.filter(username=username).exists():
+            messages.error(request, 'Username already exists. Please choose a different one.')
+            return redirect('signup')
+
+        if User.objects.filter(email=email).exists():
+            messages.error(request, 'An account with this email already exists.')
+            return redirect('signup')
+
+        try:
+            user = User.objects.create_user(username=username, email=email, password=password)
+            user.save()
+            messages.success(request, 'Signup successful! You can now log in.')
+            return redirect('login')
+        except Exception as e:
+            messages.error(request, f'Signup failed: {str(e)}. Please try again.')
 
     return render(request, 'signup.html')
 
-# Contact View
+
+# ✅ Contact View (Fixed)
 def contact_view(request):
     if request.method == "POST":
         form = ContactForm(request.POST)
@@ -62,30 +79,41 @@ def contact_view(request):
             email = form.cleaned_data['email']
             message = form.cleaned_data['message']
 
-            # Send email
             try:
                 send_mail(
                     subject=f"New Contact Form Submission from {name}",
                     message=message,
-                    from_email=email,  # Sender's email
-                    recipient_list=['shantel490@googlemail.com'],  # Replace with your email
+                    from_email=email,
+                    recipient_list=['shantel490@googlemail.com'], 
                     fail_silently=False,
                 )
                 messages.success(request, "Your message has been sent successfully!")
                 return redirect('contact')
             except Exception as e:
-                messages.error(request, "Failed to send message. Please try again later.")
-                print("Email Error:", e)
+                messages.error(request, f"Failed to send message: {str(e)}. Please try again later.")
     else:
         form = ContactForm()
 
     return render(request, "contact.html", {"form": form})
 
-# Session View (Only accessible if logged in)
+
+# ✅ Session View (Added Missing Function)
 @login_required(login_url='login')
 def session_view(request):
-    return render(request, 'session.html')
+    if request.method == 'POST':
+        form = AudioUploadForm(request.POST, request.FILES)
+        if form.is_valid():
+            audio_file = form.save(commit=False)
+            audio_file.user = request.user
+            audio_file.save()
+            messages.success(request, "Audio file uploaded successfully!")
+            return redirect('session')
+        else:
+            messages.error(request, "Error uploading audio file. Please try again.")
 
-# Homepage View
-def homepage_view(request):
-    return render(request, 'login.html')
+    else:
+        form = AudioUploadForm()
+
+    uploaded_tracks = AudioFile.objects.filter(user=request.user)
+
+    return render(request, 'session.html', {'form': form, 'uploaded_tracks': uploaded_tracks})
