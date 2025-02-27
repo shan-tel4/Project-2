@@ -1,13 +1,15 @@
 import os
 from pathlib import Path
+import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-kb48jqvbqd6w^&fe9okw65vz-)0ri)c=v9s%xs=8=+v_w6!=a#'
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-kb48jqvbqd6w^&fe9okw65vz-)0ri)c=v9s%xs=8=+v_w6!=a#')  # Set SECRET_KEY in environment variable for production
 
-DEBUG = True
+DEBUG = False  # Set to False for production on Heroku
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['your-heroku-app.herokuapp.com', 'www.your-domain.com']  # Change to your Heroku app domain
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
@@ -27,7 +29,7 @@ MIDDLEWARE = [
 # Whitenoise config:
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# Configure STATICFILES_DIRS correctly for Heroku
+# Static files directories for development
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'myapp/static'),  # Make sure this points to your static directory
 ]
@@ -49,17 +51,28 @@ INSTALLED_APPS = [
 
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
-# Database configuration (SQLite for local development, PostgreSQL or another DB for production)
+# Database configuration (SQLite for local development, PostgreSQL for production)
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',  # Change to PostgreSQL for production
-    }
+    'default': dj_database_url.config(default='sqlite:///' + str(BASE_DIR / 'db.sqlite3')),
 }
+
+# Password validation
+AUTH_PASSWORD_VALIDATORS = [
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
+]
+
+# Internationalization
+LANGUAGE_CODE = 'en-us'
+TIME_ZONE = 'UTC'
+USE_I18N = True
+USE_TZ = True
 
 # Email configuration
 if os.getenv('GITPOD_WORKSPACE_ID'):  
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # Use console email backend for development
 else:
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     EMAIL_HOST = 'smtp.gmail.com'
@@ -75,4 +88,22 @@ LOGOUT_REDIRECT_URL = '/login/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Logging for Heroku to track any issues
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
 
