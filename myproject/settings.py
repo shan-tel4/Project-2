@@ -14,6 +14,7 @@ ALLOWED_HOSTS = [
     'www.your-domain.com', 
     'shay-mixer-5000-94ce7070b792.herokuapp.com',  
 ]
+
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 
@@ -112,4 +113,23 @@ LOGGING = {
         },
     },
 }
+
+# TEMPLATES Setting to define where to look for templates
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),  # Point to templates directory in the root of the project
+        ],
+        'APP_DIRS': True,  # Allow Django to search for templates in the 'templates' folder inside each app
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
 
