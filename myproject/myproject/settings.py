@@ -24,17 +24,17 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# Whitenoise config: 
+# Whitenoise config:
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# Configure STATICFILES_DIRS and STATIC_ROOT correctly for Heroku
+# Configure STATICFILES_DIRS correctly for Heroku
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'myapp/static'),  # Ensure this is correct
+    os.path.join(BASE_DIR, 'myapp/static'),  # Make sure this points to your static directory
 ]
 
 # For Heroku, set STATIC_ROOT to a directory outside 'myapp'
 if not DEBUG:
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Define STATIC_ROOT only once
 
 # Application definition
 INSTALLED_APPS = [
@@ -44,16 +44,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'myapp',
+    'myapp',  # Your app name
 ]
 
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
-# Database configuration (SQLite for local development, for production use PostgreSQL or other options)
+# Database configuration (SQLite for local development, PostgreSQL or another DB for production)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',  # Change to PostgreSQL for production
     }
 }
 
@@ -75,8 +75,4 @@ LOGOUT_REDIRECT_URL = '/login/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Use this to collect static files for production deployment
-# Ensure it is done after the last line of code in the settings.py
-if not DEBUG:
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
