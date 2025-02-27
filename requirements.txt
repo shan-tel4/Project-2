@@ -3,3 +3,4 @@ Django==5.1.6
 gunicorn==23.0.0
 sqlparse==0.5.3
 whitenoise==6.9.0
+dj-database-url==0.5.0
