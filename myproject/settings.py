@@ -11,8 +11,12 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-kb48jqvbqd6w^&fe9okw65vz-)
 # Turn off debug mode in production
 DEBUG = os.getenv('DEBUG', 'False') == 'True'  # Use environment variable for control
 
-# ALLOWED_HOSTS - Set to include your Gitpod domain and localhost for development
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
+ALLOWED_HOSTS = [
+    'localhost', 
+    '127.0.0.1', 
+    '8000-shantel4-project2-joy9cunfd3c.ws-eu118.gitpod.io'
+]
+
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
