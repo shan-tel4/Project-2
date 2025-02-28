@@ -12,11 +12,10 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-kb48jqvbqd6w^&fe9okw65vz-)
 DEBUG = os.getenv('DEBUG', 'False') == 'True'  # Use environment variable for control
 
 ALLOWED_HOSTS = [
-    'localhost', 
-    '127.0.0.1', 
-    '8000-shantel4-project2-joy9cunfd3c.ws-eu118.gitpod.io'
+    'localhost',
+    '127.0.0.1',
+    '8000-shantel4-project2-joy9cunfd3c.ws-eu118.gitpod.io',  # Your Gitpod domain
 ]
-
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
@@ -63,7 +62,7 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 
 # Database configuration (SQLite for local development, PostgreSQL for production)
 DATABASES = {
-    'default': dj_database_url.config(default='sqlite:///' + str(BASE_DIR / 'db.sqlite3')),
+    'default': dj_database_url.config(default='sqlite:///' + str(BASE_DIR / 'db.sqlite3')),  # Default to SQLite for development
 }
 
 # Password validation
@@ -146,6 +145,8 @@ if not DEBUG:
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
 
+    # Enable SSL redirect only for production (when not in DEBUG mode)
+    SECURE_SSL_REDIRECT = True
 
 if os.getenv('HEROKU_APP_NAME'):
     SECURE_SSL_REDIRECT = True
@@ -161,6 +162,9 @@ SESSION_COOKIE_SECURE = True
 # Static files configuration for production
 WHITENOISE_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Ensure this points to the correct folder for production
 
+# Conditional for SSL redirection based on the DEBUG setting
+if DEBUG:
+    SECURE_SSL_REDIRECT = False  # Disable HTTPS redirection for local development
 
 
 
