@@ -2,23 +2,28 @@ import os
 from pathlib import Path
 import dj_database_url
 
+# Path to the project directory
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-kb48jqvbqd6w^&fe9okw65vz-)0ri)c=v9s%xs=8=+v_w6!=a#')  # Set SECRET_KEY in environment variable for production
 
-DEBUG = False  # Set to False for production on Heroku
+# Turn off debug mode in production
+DEBUG = os.getenv('DEBUG', 'False') == 'True'  # Use environment variable for control
 
+# Hosts allowed to access the app
 ALLOWED_HOSTS = [
-    'your-heroku-app.herokuapp.com', 
-    'www.your-domain.com', 
-    'shay-mixer-5000-94ce7070b792.herokuapp.com',  
+    '*.gitpod.io',  # Allow all Gitpod workspaces
+    'your-heroku-app.herokuapp.com',  # Replace with your Heroku app's domain
+    'www.your-domain.com',  # Replace with your own domain
+    'shay-mixer-5000-94ce7070b792.herokuapp.com',  # Replace with your Heroku URL (if applicable)
+    '8000-shantel4-project2-joy9cunfd3c.ws-eu118.gitpod.io',  # Gitpod URL for testing
 ]
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 
-# Use Whitenoise to serve static files on Heroku
+# Whitenoise middleware to serve static files in production
 MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',  # Add this line for Whitenoise
     'django.middleware.security.SecurityMiddleware',
@@ -30,17 +35,17 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# Whitenoise config:
+# Whitenoise static files storage
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Static files directories for development
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'myapp/static'),  # Make sure this points to your static directory
+    os.path.join(BASE_DIR, 'myapp/static'),  # This points to your static directory inside your app
 ]
 
-# For Heroku, set STATIC_ROOT to a directory outside 'myapp'
+# Set STATIC_ROOT for production static files
 if not DEBUG:
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Define STATIC_ROOT only once
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Directory for static files in production
 
 # Application definition
 INSTALLED_APPS = [
@@ -53,7 +58,7 @@ INSTALLED_APPS = [
     'myapp',  # Your app name
 ]
 
-# Make sure to set ROOT_URLCONF
+# Root URL configuration
 ROOT_URLCONF = 'myproject.urls'
 
 WSGI_APPLICATION = 'myproject.wsgi.application'
@@ -71,13 +76,13 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
-# Internationalization
+# Internationalization settings
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-# Email configuration
+# Email configuration for both development (Gitpod) and production
 if os.getenv('GITPOD_WORKSPACE_ID'):  
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # Use console email backend for development
 else:
@@ -114,6 +119,7 @@ LOGGING = {
     },
 }
 
+# Templates configuration
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -131,5 +137,32 @@ TEMPLATES = [
         },
     },
 ]
+
+# Security settings for production (use HTTPS, secure cookies)
+if not DEBUG:
+    CSRF_COOKIE_SECURE = True
+    SESSION_COOKIE_SECURE = True
+    SECURE_SSL_REDIRECT = True  # Redirect HTTP to HTTPS
+    X_FRAME_OPTIONS = 'DENY'  # Add this to block clickjacking attacks
+    SECURE_HSTS_SECONDS = 3600  # Use HTTP Strict Transport Security for one hour
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
+
+
+if os.getenv('HEROKU_APP_NAME'):
+    SECURE_SSL_REDIRECT = True
+
+# Django security settings (for production environments)
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
+# Set session cookie and CSRF cookie to be secure in production
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+
+# Static files configuration for production
+WHITENOISE_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Ensure this points to the correct folder for production
+
+
 
 
