@@ -15,6 +15,7 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     '8000-shantel4-project2-joy9cunfd3c.ws-eu118.gitpod.io',  # Your Gitpod domain
+    'shay-mixer-5000.herokuapp.com',  # Heroku domain
 ]
 
 # Static files (CSS, JavaScript, Images)
@@ -37,7 +38,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Static files directories for development
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'myapp/static'),  # This points to your static directory inside your app
+    os.path.join(BASE_DIR, 'myapp/static'),  # Ensure this points to your static directory inside your app
 ]
 
 # Set STATIC_ROOT for production static files
@@ -165,6 +166,7 @@ WHITENOISE_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Ensure this points to
 # Conditional for SSL redirection based on the DEBUG setting
 if DEBUG:
     SECURE_SSL_REDIRECT = False  # Disable HTTPS redirection for local development
+
 
 
 
