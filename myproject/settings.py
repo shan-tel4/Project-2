@@ -14,9 +14,9 @@ DEBUG = os.getenv('DEBUG', 'False') == 'True'  # Use environment variable for co
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    '8000-shantel4-project2-joy9cunfd3c.ws-eu118.gitpod.io',  # Your Gitpod domain
-    'shay-mixer-5000.herokuapp.com',  # Heroku domain
+    'shay-mixer-5000-94ce7070b792.herokuapp.com',
 ]
+
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
