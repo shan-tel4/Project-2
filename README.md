@@ -1,4 +1,4 @@
-# Shay Mixer 5000 HTML CSS JavaScript
+# Shay Mixer 5000
 
 ## Project Description
 
