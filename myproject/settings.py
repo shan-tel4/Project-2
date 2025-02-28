@@ -11,14 +11,8 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-kb48jqvbqd6w^&fe9okw65vz-)
 # Turn off debug mode in production
 DEBUG = os.getenv('DEBUG', 'False') == 'True'  # Use environment variable for control
 
-# Hosts allowed to access the app
-ALLOWED_HOSTS = [
-    '*.gitpod.io',  # Allow all Gitpod workspaces
-    'your-heroku-app.herokuapp.com',  # Replace with your Heroku app's domain
-    'www.your-domain.com',  # Replace with your own domain
-    'shay-mixer-5000-94ce7070b792.herokuapp.com',  # Replace with your Heroku URL (if applicable)
-    '8000-shantel4-project2-joy9cunfd3c.ws-eu118.gitpod.io',  # Gitpod URL for testing
-]
+# ALLOWED_HOSTS - Set to include your Gitpod domain and localhost for development
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
